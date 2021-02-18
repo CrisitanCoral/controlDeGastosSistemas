@@ -1,0 +1,35 @@
+body {
+    background: #ecf0f1;
+    font-family: sans-serif;
+    margin: 0 auto;
+  }
+
+#contenedorPrimario {
+    justify-content: center; 
+    text-align: center;
+    margin: auto;
+    margin-top: 5em;
+    border: 2px;
+    display: flex
+}
+
+#registrese {
+    text-align: center;
+    margin-top: 2em;
+}
+
+#imagenFinal {
+    align-content: center;
+    text-align: center;
+    margin-top: 3em;
+}
+
+#contenedorRegistro {
+    justify-content: center; 
+    text-align: center;
+    margin: auto;
+    margin-top: 1em;
+    border: 6px;
+    display: flex
+}
+
