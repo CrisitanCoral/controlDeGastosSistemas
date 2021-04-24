@@ -11,7 +11,7 @@
 </head>
 <body>
 		<div id="contenedorRegistro" class="col-sm-12">
-				<form action="php/guardar.php" method="POST">
+				<form action="php/registro_usuarios.php" method="POST">
 				
 				
 					<h2>REGISTRESE</h2>
@@ -32,22 +32,22 @@
 					    </div>
 
 					    <div class="form-group">
-					      <label for="apellidos">Contraseña *:</label>
+					      <label for="clave">Contraseña *:</label>
 					      <input type="password" class="form-control" id="clave" placeholder="Ingrese contraseña" name="clave" size="40" required="true">
 					    </div>
 
 					    <div class="form-group">
-					      <label for="apellidos">Confirmar Contraseña *:</label>
-					      <input type="password" class="form-control" id="conf clave" placeholder="Confirmar contraseña" name="clave2" size="40" required="true">
+					      <label for="clave2">Confirmar Contraseña *:</label>
+					      <input type="password" class="form-control" id="clave2" placeholder="Confirmar contraseña" name="clave2" size="40" required="true">
 					    </div>
 
 					    </br>
 					    	<div>
 							  	<input type="submit" value="Registrarse" class="btn btn-primary col-sm-4">
-								<button type="button" onclick=" location.href='index.html' "class="btn btn-secondary col-sm-4">Cancelar</button">
+								<button type="button" onclick=" location.href='index.php' "class="btn btn-secondary col-sm-4">Cancelar</button">
 				  			</div>
 
-				  	<p id="registrese" class="regtext">¿Ya estas registrado? <a href="index.html" >Ingresa Aquí</a>!</p>
+				  	<p id="registrese" class="regtext">¿Ya estas registrado? <a href="index.php" >Ingresa Aquí</a>!</p>
 		  	</form>
 		</div>
 	<section id="imagenFinal">

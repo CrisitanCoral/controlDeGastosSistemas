@@ -33,3 +33,11 @@ body {
     display: flex
 }
 
+#contenedorHome {
+    padding-top: 30px;
+    padding-bottom: 80px;
+    padding-right: 50px;
+    padding-left: 400px;
+    border: 1px solid black;
+    background-color: azure;
+}

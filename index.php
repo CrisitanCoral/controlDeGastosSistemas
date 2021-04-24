@@ -11,9 +11,9 @@
     <script src='js/app.js'></script>
 </head>
 <body>    
-    <div id="contenedorPrimario" class="col-sm-6">	
+    <div id="contenedorPrimario" class="col-sm-4">	
         <div class="container-fluid">
-            <form action="php/ingresar.php" method="POST">
+            <form action="php/ingresar_usuario.php" method="POST">
                     <h2>LOGIN</h2>
                 </br>
                         <div class="form-group">
@@ -22,7 +22,7 @@
                         </div>
 
                         <div class="form-group">
-                          <label for="contrasena">Contraseña *:</label>
+                          <label for="clave">Contraseña *:</label>
                           <input type="password" class="form-control" id="clave" placeholder="Ingrese contraseña" name="clave" size="40" required="true">
                         </div>
 
