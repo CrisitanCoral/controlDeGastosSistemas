@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +31,7 @@
                             <input type="submit" value="Ingresar" class="btn btn-primary col-sm-4">
                             <button type="button" onclick=" location.href= 'https://tvnovedades.com.co/' "class="btn btn-secondary col-sm-4">Cancelar</button">
                         </div>  
-                      <p id="registrese" class="regtext">¿No estas registrado? <a href="registro.html" >Registrate Aquí</a>!</p>
+                      <p id="registrese" class="regtext">¿No estas registrado? <a href="registro.php" >Registrate Aquí</a>!</p>
             </form>
         </div>
     </div>

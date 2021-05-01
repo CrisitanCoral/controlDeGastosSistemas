@@ -42,12 +42,12 @@
               </a>
             </li>
             <li>
-              <a href="creacioprov.html" class="current">
+              <a href="php/creacionprov.php" class="current">
                 Crear Proveedor
               </a>
             </li>
             <li>
-              <a href="creacionfac.html" class="current">
+              <a href="php/creacionfac.php" class="current">
                 Crear Facturas
               </a>
             </li>
@@ -57,13 +57,13 @@
               </a>
             </li>
              <li>
-              <a href="buscarprov.html" class="current">
+              <a href="php/proveedores.php" class="current">
                 Ver Proveedores
               </a>
             </li>
             <li>
-              <a href="index.php" class="current">
-                Gestionar Facturas
+              <a href="php/usuarios.php" class="current">
+                Gestionar Usuarios
               </a>
             </li>
             <li>
