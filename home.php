@@ -37,7 +37,7 @@
           </a>
           <ul>
             <li>
-              <a href="home.html" class="current">
+              <a href="home.php" class="current">
                 Inicio
               </a>
             </li>
@@ -62,8 +62,13 @@
               </a>
             </li>
             <li>
-              <a href="index.html" class="current">
+              <a href="index.php" class="current">
                 Gestionar Facturas
+              </a>
+            </li>
+            <li>
+              <a href="php/cerrar_sesion.php">
+                Cerrar Sesión
               </a>
             </li>
           </ul>
