@@ -46,19 +46,24 @@
                 Crear Proveedor
               </a>
             </li>
-            <li>
-              <a href="php/creacionfac.php" class="current">
-                Crear Facturas
-              </a>
-            </li>
              <li>
               <a href="php/proveedores.php" class="current">
                 Ver Proveedores
               </a>
             </li>
             <li>
+              <a href="php/creacionfac.php" class="current">
+                Crear Facturas
+              </a>
+            </li>
+            <li>
+              <a href="php/tiendas.php" class="current">
+                Gestion de Tiendas
+              </a>
+            </li>
+            <li>
               <a href="php/usuarios.php" class="current">
-                Gestionar Usuarios
+                Gestion de Usuarios
               </a>
             </li>
             <li>
