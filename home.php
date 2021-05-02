@@ -51,11 +51,6 @@
                 Crear Facturas
               </a>
             </li>
-            <li>
-              <a href="buscarprov.html" class="current">
-                Ver facturas
-              </a>
-            </li>
              <li>
               <a href="php/proveedores.php" class="current">
                 Ver Proveedores
@@ -67,7 +62,7 @@
               </a>
             </li>
             <li>
-              <a href="php/cerrar_sesion.php">
+              <a id="cerrar_sesion" href="php/cerrar_sesion.php">
                 Cerrar Sesión
               </a>
             </li>
