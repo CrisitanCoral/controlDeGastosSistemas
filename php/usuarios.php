@@ -44,6 +44,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../css\styles.css">
 	</head>
 	<body>
 		
@@ -68,7 +69,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 		<input type="text" class="form-control" placeholder="Ingrese correo del usuario" name="correo_electronico" value="">
 	</div>
 </div>
-<div class="col-sm-2"></div>
+<div class="col-sm-8"></div>
 </div>
 
 
@@ -83,7 +84,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 
 
 			</form>
-			<table class="table">
+			<table id="tabla" class="table table-striped">
 				<tr>
 					<th>ID</th>
 					<th>NOMBRES</th>

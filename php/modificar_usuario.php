@@ -9,16 +9,15 @@ $base="gestor_facturas";
 
 $conexion= new mysqli($host, $usuario, $contraseña, $base);
 
-$id =$_GET["id"];
-$usuarios="select * from usuarios WHERE ID_USUARIO = '$id'";
-
+$id= $_GET["id"];
+$usuarios="SELECT * FROM usuarios WHERE ID_USUARIO = '$id'";
 $resUsuarios=$conexion->query($usuarios);
 
 ?>
 <html lang="es">
 
 	<head>
-	<title>ACTUALIZAR USUARIOS</title> 
+	<title>GESTION DE USUARIOS</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="shortcut icon" href="../img\icon.svg">
@@ -26,59 +25,39 @@ $resUsuarios=$conexion->query($usuarios);
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../css\styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="../css\styles.css">
 	</head>
 	<body>
 		
-		<section>
-			<div class="row">
-					<div class="col-sm-4"></div>
-				</br>
-					<div class="col-sm-6">
-					</br> </br>
-						<h2>ACTUALIZAR DATOS DE USUARIO</h2>
-                        </br>
-					</div>
-					<div class="col-sm-4"></div>
-			</div>
-			<div class="row">
+    <div class="container home">    
+    <h2>ACTUALIZACIÓN DE USUARIOS</h2>      
+    <table id="data_table" class="table table-striped">
+				<tr>
+					<th>ID</th>
+					<th>NOMBRES</th>
+					<th>APELLIDOS</th>
+					<th>CORREO</th>
+					<th>CLAVE</th>
+					<th>FECHA DE REGISTRO</th>
+				</tr>
 
-    <div class="col-sm-2"></div>
+				<?php
+
+				while ($registroUsuarios = $resUsuarios->fetch_array(MYSQLI_BOTH))
+				{
+
+					echo'<tr>
+						 <td>'.$registroUsuarios['ID_USUARIO'].'</td>
+						 <td>'.$registroUsuarios['NOMBRE_USUARIO'].'</td>
+						 <td>'.$registroUsuarios['APELLIDO_USUARIO'].'</td>
+						 <td>'.$registroUsuarios['CORREO_USUARIO'].'</td>
+						 <td>'.$registroUsuarios['CLAVE_USUARIO'].'</td>
+						 <td>'.$registroUsuarios['FECHA_CREACION'].'</td>
+                         </tr>';
+				}
+				?>
+			</table>
 </div>
-    <div id="contenedorRegistro" class="col-sm-8">
-                <form action="actualizar_usuario.php" method="POST">   
-                            <div class="form-group">
-                            <label for="nombres">Nombres *:</label>
-                            <input type="text" class="form-control" id="nombres" placeholder="Ingrese nombres" name="nombres" size="40" required="true">
-                            </div>
-                            
-                            <div class="form-group">
-                            <label for="apellidos">Apellidos *:</label>
-                            <input type="text" class="form-control" id="apellidos" placeholder="Ingrese apellidos" name="apellidos" size="40" required="true">
-                            </div>
-
-                            <div class="form-group">
-                            <label for="correo">Correo Electronico *:</label>
-                            <input type="email" class="form-control" id="correo" placeholder="Ingrese correo" name="correo" size="40" required="true">
-                            </div>
-
-                            <div class="form-group">
-                            <label for="clave">Contraseña *:</label>
-                            <input type="password" class="form-control" id="clave" placeholder="Ingrese contraseña" name="clave" size="40" required="true">
-                            </div>
-
-                            <div class="form-group">
-                            <label for="clave2">Confirmar Contraseña *:</label>
-                            <input type="password" class="form-control" id="clave2" placeholder="Confirmar contraseña" name="clave2" size="40" required="true">
-                            </div>
-
-                            </br>
-                                <div>
-                                    <input type="submit" value="Actualizar" class="btn btn-primary col-sm-4">
-                                    <button type="button" onclick=" location.href='usuarios.php' "class="btn btn-secondary col-sm-4">Cancelar</button">
-                                </div>
-                </form>
-            </section>
-    </div>
 	</body>
 </html>
