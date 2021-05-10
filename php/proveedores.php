@@ -16,11 +16,11 @@ if ($conexion -> connect_errno)
 ////////////////// VARIABLES DE CONSULTA////////////////////////////////////
 
 $where="";
-$nit=$_POST['nit'];
+$nombre=$_POST['razon'];
 
 ////////////////////// BOTON BUSCAR //////////////////////////////////////
-if(!empty($email)){
-    $where .=" AND nit like '%".$nit."%'";
+if(!empty($nombre)){
+    $where .=" AND razon like '%".$nombre."%'";
 }
 /////////////////////// CONSULTA A LA BASE DE DATOS ////////////////////////
 
@@ -64,8 +64,8 @@ if(mysqli_num_rows($resUsuarios)==0)
 	<div class="col-sm-4"></div>
 	<div class="col-sm-4">
 	<div class="form-group">
-		<label for="nit"> NIT del proveedor:</label>
-		<input type="text" class="form-control" placeholder="Ingrese NIT del proveedor" name="nit" value="">
+		<label for="nit"> Razon Social:</label>
+		<input type="text" class="form-control" placeholder="Ingrese la Razon Social del proveedor" name="nit" value="">
 	</div>
 </div>
 <div class="col-sm-2"></div>

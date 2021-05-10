@@ -24,7 +24,7 @@ if(!empty($email)){
 }
 /////////////////////// CONSULTA A LA BASE DE DATOS ////////////////////////
 
-$usuarios="select * from usuarios where 1=1 $where ";
+$usuarios="select * from usuarios WHERE 1=1 $where ";
 
 $resUsuarios=$conexion->query($usuarios);
 
@@ -101,13 +101,13 @@ if(mysqli_num_rows($resUsuarios)==0)
 				{
 
 					echo'<tr>
-						 <td>'.$registroUsuarios['id_usuario'].'</td>
+						 <td>'.$registroUsuarios['ID_USUARIO'].'</td>
 						 <td>'.$registroUsuarios['NOMBRE_USUARIO'].'</td>
 						 <td>'.$registroUsuarios['APELLIDO_USUARIO'].'</td>
 						 <td>'.$registroUsuarios['CORREO_USUARIO'].'</td>
 						 <td>'.$registroUsuarios['CLAVE_USUARIO'].'</td>
 						 <td>'.$registroUsuarios['FECHA_CREACION'].'</td>
-						 <td> <a class="btn btn-warning onclick=" location.href="paginaEditar.php?variable=<?php echo $.$registroUsuarios["id_usuarios"]">Editar</button></td>
+						 <td> <a class="btn btn-warning onclick="href="modificar_usuario.php?id='.$registroUsuarios['ID_USUARIO'].']">Editar</button></td>
 						 <td> <button class="btn btn-danger glyphicon glyphicon-remove">Eliminar</button></td>
 						 </tr>';
 				}

@@ -57,11 +57,6 @@
               </a>
             </li>
             <li>
-              <a href="php/tiendas.php" class="current">
-                Gestion de Tiendas
-              </a>
-            </li>
-            <li>
               <a href="php/usuarios.php" class="current">
                 Gestion de Usuarios
               </a>
