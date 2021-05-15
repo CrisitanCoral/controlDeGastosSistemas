@@ -47,17 +47,19 @@ $resUsuarios=$conexion->query($usuarios);
 				while ($registroUsuarios = $resUsuarios->fetch_array(MYSQLI_BOTH))
 				{
 
+					
 					echo'<tr>
-						 <td>'.$registroUsuarios['ID_USUARIO'].'</td>
-						 <td>'.$registroUsuarios['NOMBRE_USUARIO'].'</td>
-						 <td>'.$registroUsuarios['APELLIDO_USUARIO'].'</td>
-						 <td>'.$registroUsuarios['CORREO_USUARIO'].'</td>
-						 <td>'.$registroUsuarios['CLAVE_USUARIO'].'</td>
-						 <td>'.$registroUsuarios['FECHA_CREACION'].'</td>
-                         </tr>';
+					<td>'.$registroUsuarios['ID_USUARIO'].'</td>
+					<td>'.$registroUsuarios['NOMBRE_USUARIO'].'</td>
+					<td>'.$registroUsuarios['APELLIDO_USUARIO'].'</td>
+					<td>'.$registroUsuarios['CORREO_USUARIO'].'</td>
+					<td>'.$registroUsuarios['CLAVE_USUARIO'].'</td>
+					<td>'.$registroUsuarios['FECHA_CREACION'].'</td>
+					</tr>';
+					
 				}
 				?>
 			</table>
-</div>
+		</div>
 	</body>
 </html>
