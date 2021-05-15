@@ -16,15 +16,15 @@ if ($conexion -> connect_errno)
 ////////////////// VARIABLES DE CONSULTA////////////////////////////////////
 
 $where="";
-$email=$_POST['correo_electronico'];
+$email = $_POST['CORREO_USUARIO'];
 
 ////////////////////// BOTON BUSCAR //////////////////////////////////////
 if(!empty($email)){
-    $where .=" AND correo_electronico like '%".$email."%'";
+    $where .=" AND CORREO_USUARIO like '%".$email."%'";
 }
 /////////////////////// CONSULTA A LA BASE DE DATOS ////////////////////////
 
-$usuarios="select * from usuarios WHERE 1=1 $where ";
+$usuarios="SELECT * FROM usuarios WHERE 1=1 $where ";
 
 $resUsuarios=$conexion->query($usuarios);
 
@@ -50,39 +50,34 @@ if(mysqli_num_rows($resUsuarios)==0)
 		
 		<section>
 			<form method="POST">
+				<div class="row">
+						<div class="col-sm-4"></div>
+					</br>
+						<div class="col-sm-6">
+						</br> </br>
+								<h2>GESTION DE USUARIOS</h2>
+						</div>
+						<div class="col-sm-4"></div>
+				</div>
+				<div class="row">
 
-			<div class="row">
-					<div class="col-sm-4"></div>
-				</br>
-					<div class="col-sm-6">
-					</br> </br>
-							<h2>GESTION DE USUARIOS</h2>
-					</div>
-					<div class="col-sm-4"></div>
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4">
+				<div class="form-group">
+					<label for="correo"> Correo del usuario:</label>
+					<input type="text" class="form-control" placeholder="Ingrese correo del usuario" name="CORREO_USUARIO" value="">
+				</div>
 			</div>
-			<div class="row">
-
-	<div class="col-sm-4"></div>
-	<div class="col-sm-4">
-	<div class="form-group">
-		<label for="correo"> Correo del usuario:</label>
-		<input type="text" class="form-control" placeholder="Ingrese correo del usuario" name="correo_electronico" value="">
+				<div class="col-sm-8"></div>
+		</div>
+	<div class="row">
+			<div class="col-sm-4"></div>
+				<div class="col-sm-4">
+					<input type="submit" name= "buscar" value="BUSCAR" class="btn btn-primary col-sm-4">
+					<button type="button" onclick=" location.href='../home.php' "class="btn btn-secondary col-sm-4 ">CANCELAR</button">
+			</div>
+		<div class="col-sm-6"></div>
 	</div>
-</div>
-<div class="col-sm-8"></div>
-</div>
-
-
-<div class="row">
-					<div class="col-sm-4"></div>
-					<div class="col-sm-4">
-							<input type="submit" name= "buscar" value="BUSCAR" class="btn btn-primary col-sm-4">
-							<button type="button" onclick=" location.href='../home.php' "class="btn btn-secondary col-sm-4 ">CANCELAR</button">
-					</div>
-					<div class="col-sm-6"></div>
-			</div>
-
-
 			</form>
 			<table id="tabla" class="table table-striped">
 				<tr>
@@ -92,6 +87,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 					<th>CORREO</th>
 					<th>CLAVE</th>
 					<th>FECHA DE REGISTRO</th>
+					<th>FECHA DE MODIFICACION</th>
 					<th>EDITAR</th>
 					<th>ELIMINAR</th>
 				</tr>
@@ -108,9 +104,11 @@ if(mysqli_num_rows($resUsuarios)==0)
 						 <td>'.$registroUsuarios['CORREO_USUARIO'].'</td>
 						 <td>'.$registroUsuarios['CLAVE_USUARIO'].'</td>
 						 <td>'.$registroUsuarios['FECHA_CREACION'].'</td>
-						 <td> <a class="btn btn-warning onclick="href="modificar_usuario.php?id='.$registroUsuarios['ID_USUARIO'].']">Editar</button></td>
+						 <td>'.$registroUsuarios['FECHA_MODIFICACION'].'</td>
+						 <td> <a class="btn btn-warning onclick="href="actualizar_usuario.php?id='.$registroUsuarios['ID_USUARIO'].'">Editar</button></td>
 						 <td> <button class="btn btn-danger glyphicon glyphicon-remove">Eliminar</button></td>
 						 </tr>';
+						 
 				}
 				?>
 			</table>

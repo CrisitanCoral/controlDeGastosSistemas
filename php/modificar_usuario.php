@@ -1,65 +1,61 @@
 <?php
+    $cons_usuario="root";
+    $cons_contra="";
+    $cons_base_datos="gestor_facturas";
+    $cons_equipo="localhost";
 
-////////////////// CONEXION A LA BASE DE DATOS ////////////////////////////////////
+    $obj_conexion = mysqli_connect($cons_equipo,$cons_usuario,$cons_contra,$cons_base_datos);
 
-$host="localhost";
-$usuario="root";
-$contraseña="";
-$base="gestor_facturas";
+        
+        if($obj_conexion)
+        {
+            echo "<h3>Conexion Exitosa PHP - MySQL</h3><hr><br>";
+        }
+        else
+        {
+            echo "<h3>No se ha podido conectar PHP - MySQL, verifique sus datos.</h3><hr><br>";
+        }
+        
+		$id=$_POST['id'];
+        $nombres=$_POST['nombres'];
+        $apellidos=$_POST['apellidos'];
+        $correo=$_POST['correo'];
+        $clave=$_POST['clave'];
+        $clave2=$_POST['clave2'];
+        $fecha_modificacion=date('Y-m-d H:i:s');
 
-$conexion= new mysqli($host, $usuario, $contraseña, $base);
+        $var_consulta= "select * from usuarios where correo_usuario='$correo'";
+        $var_resultado = $obj_conexion->query($var_consulta);
 
-$id= $_GET["id"];
-$usuarios="SELECT * FROM usuarios WHERE ID_USUARIO = '$id'";
-$resUsuarios=$conexion->query($usuarios);
+        if($var_resultado->num_rows>0)
+        {
+        echo '<script language="javascript">alert("Ya existe un usuario con ese correo");window.location.href="usuarios.php"</script>';
+        } 
+        else 
+        {
+            if($clave == $clave2)
+            {
+            // $clave= hash('sha512', $clave);
+            $sql="UPDATE usuarios 
+				SET NOMBRE_USUARIO = '$nombres',
+				APELLIDO_USUARIO = '$apellidos', 
+				CORREO_USUARIO = '$correo',
+				CLAVE_USUARIO = '$clave',
+				FECHA_MODIFICACION = '$fecha_modificacion'
+				WHERE ID_USUARIO = '$id'";
 
+                if ($obj_conexion->query($sql) === TRUE) 
+                {
+                echo '<script language="javascript">alert("Los datos se almacenaron correctamente");window.location.href="usuarios.php"</script>';
+                } 
+                    else 
+                    {
+                    echo "Error al almacenar los datos: " . $sql . "<br>" . $obj_conexion->error;
+                    }
+            }
+            else 
+            {
+            echo '<script language="javascript">alert("Las contraseñas ingresadas no coinciden");window.location.href="usuarios.php"</script>';
+            }
+        }
 ?>
-<html lang="es">
-
-	<head>
-	<title>GESTION DE USUARIOS</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="shortcut icon" href="../img\icon.svg">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<link rel="stylesheet" href="../css\styles.css">
-	</head>
-	<body>
-		
-    <div class="container home">    
-    <h2>ACTUALIZACIÓN DE USUARIOS</h2>      
-    <table id="data_table" class="table table-striped">
-				<tr>
-					<th>ID</th>
-					<th>NOMBRES</th>
-					<th>APELLIDOS</th>
-					<th>CORREO</th>
-					<th>CLAVE</th>
-					<th>FECHA DE REGISTRO</th>
-				</tr>
-
-				<?php
-
-				while ($registroUsuarios = $resUsuarios->fetch_array(MYSQLI_BOTH))
-				{
-
-					
-					echo'<tr>
-					<td>'.$registroUsuarios['ID_USUARIO'].'</td>
-					<td>'.$registroUsuarios['NOMBRE_USUARIO'].'</td>
-					<td>'.$registroUsuarios['APELLIDO_USUARIO'].'</td>
-					<td>'.$registroUsuarios['CORREO_USUARIO'].'</td>
-					<td>'.$registroUsuarios['CLAVE_USUARIO'].'</td>
-					<td>'.$registroUsuarios['FECHA_CREACION'].'</td>
-					</tr>';
-					
-				}
-				?>
-			</table>
-		</div>
-	</body>
-</html>

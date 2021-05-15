@@ -36,7 +36,7 @@
             if($clave == $clave2)
             {
             // $clave= hash('sha512', $clave);
-            $sql="INSERT INTO usuarios VALUES( '0', '$nombres','$apellidos', '$correo','$clave','$fecha_creacion')";
+            $sql="INSERT INTO usuarios VALUES( '0', '$nombres','$apellidos', '$correo','$clave','$fecha_creacion', '')";
 
                 if ($obj_conexion->query($sql) === TRUE) 
                 {
