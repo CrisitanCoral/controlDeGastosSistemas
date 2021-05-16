@@ -25,12 +25,12 @@
         $valor=$_POST['valor'];
         $fecha_actualizacion=date('Y-m-d H:i:s');
 
-        $var_consulta= "select * from proveedores where id_proveedor='$nit'";
+        $var_consulta= "SELECT * FROM facturas WHERE numero_factura='$id'";
         $var_resultado = $obj_conexion->query($var_consulta);
 
         if($var_resultado->num_rows>0)
         {
-        echo '<script language="javascript">alert("Ya existe un proveedores con ese nit");window.location.href="creacionprov.php"</script>';
+        echo '<script language="javascript">alert("Ya existe una factura con ese numero");window.location.href="creacionfac.php"</script>';
         } 
         else 
         {
@@ -38,7 +38,7 @@
 
                 if ($obj_conexion->query($sql) === TRUE) 
                 {
-                echo '<script language="javascript">alert("Los datos se almacenaron correctamente");window.location.href="creacionprov.php"</script>';
+                echo '<script language="javascript">alert("Los datos se almacenaron correctamente");window.location.href="creacionfac.php"</script>';
                 } 
                     else 
                     {
