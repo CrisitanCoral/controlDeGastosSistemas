@@ -56,7 +56,7 @@ if(mysqli_num_rows($resUsuarios)==0)
     <title>Control Gastos Sistemas</title>
     <link rel="shortcut icon" href="img\icon.svg">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
     <script src='js/app.js'></script>
 </head>
@@ -166,7 +166,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 				?>
 			</table>
 		</section>
-		<script src="../js\confirmacion_eliminar.js"></script>
+		<script src="js\confirmacion_eliminar.js"></script>
 
     </header>
 </body>
