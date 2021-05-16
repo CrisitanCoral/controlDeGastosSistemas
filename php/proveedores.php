@@ -29,16 +29,16 @@ if ($conexion -> connect_errno)
 }
 ////////////////// VARIABLES DE CONSULTA////////////////////////////////////
 
-$where="";
-$nombre=$_POST['razon'];
+$where= "";
+$nombre= $_POST['nit'];
 
 ////////////////////// BOTON BUSCAR //////////////////////////////////////
 if(!empty($nombre)){
-    $where .=" AND razon like '%".$nombre."%'";
+    $where .=" AND NOMBRE_PROVEEDOR like '%".$nombre."%'";
 }
 /////////////////////// CONSULTA A LA BASE DE DATOS ////////////////////////
 
-$usuarios="select * from proveedores where 1=1 $where ";
+$usuarios="SELECT * FROM proveedores WHERE 1=1 $where ";
 
 $resUsuarios=$conexion->query($usuarios);
 
@@ -50,14 +50,15 @@ if(mysqli_num_rows($resUsuarios)==0)
 <html lang="es">
 
 	<head>
-	<title>GESTION DE USUARIOS</title>
+	<title>PROVEEDORES</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="shortcut icon" href="../img\icon.svg">
+	<link rel="shortcut icon" href="../img\icon.svg">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../css\styles.css">
 	</head>
 	<body>
 		
@@ -78,10 +79,10 @@ if(mysqli_num_rows($resUsuarios)==0)
 	<div class="col-sm-4"></div>
 	<div class="col-sm-4">
 	<div class="form-group">
-		<label for="nit"> Razon Social:</label>
+		<label for="nit"> Razón Social:</label>
 		<input type="text" class="form-control" placeholder="Ingrese la Razon Social del proveedor" name="nit" value="">
 	</div>
-</div>
+</div> 
 <div class="col-sm-2"></div>
 </div>
 
@@ -92,12 +93,12 @@ if(mysqli_num_rows($resUsuarios)==0)
 							<input type="submit" name= "buscar" value="BUSCAR" class="btn btn-primary col-sm-4">
 							<button type="button" onclick=" location.href='../home.php' "class="btn btn-secondary col-sm-4 ">CANCELAR</button">
 					</div>
+			</br> </br></br> </br>
 					<div class="col-sm-6"></div>
 			</div>
 
-
 			</form>
-			<table class="table">
+			<table id="tabla_proveedores" class="table table-striped">
 				<tr>
 					<th>NIT</th>
 					<th>RAZON SOCIAL</th>
@@ -105,6 +106,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 					<th>DIRECCION</th>
 					<th>CORREO</th>
 					<th>FECHA DE REGISTRO</th>
+					<th>ULTIMA ACTUALIZACION</th>
 					<th>EDITAR</th>
 					<th>ELIMINAR</th>
 				</tr>
@@ -115,22 +117,20 @@ if(mysqli_num_rows($resUsuarios)==0)
 				{
 
 					echo'<tr>
-						 <td>'.$registroUsuarios['ID_PROVEEDOR'].'</td>
+						 <td>'.$registroUsuarios['NIT_PROVEEDOR'].'</td>
 						 <td>'.$registroUsuarios['NOMBRE_PROVEEDOR'].'</td>
-						 <td>'.$registroUsuarios['TELEFONO_proveedor'].'</td>
+						 <td>'.$registroUsuarios['TELEFONO_PROVEEDOR'].'</td>
 						 <td>'.$registroUsuarios['DIRECCION_PROVEEDOR'].'</td>
 						 <td>'.$registroUsuarios['CORREO_PROVEEDOR'].'</td>
 						 <td>'.$registroUsuarios['FECHA_CREACION'].'</td>
-						 <td> <a class="btn btn-warning onclick=" location.href="paginaEditar.php?variable=<?php echo $.$registroUsuarios["id_usuarios"]">Editar</button></td>
-						 <td> <button class="btn btn-danger glyphicon glyphicon-remove">Eliminar</button></td>
+						 <td>'.$registroUsuarios['FECHA_ACTUALIZACION'].'</td>
+						 <td> <a class="btn btn-warning onclick="href="actualizar_proveedor.php?id='.$registroUsuarios['NIT_PROVEEDOR'].'">Editar</button></td>
+						 <td> <a class="btn btn-danger table__item__link" onclick= href="eliminar_proveedor.php?id='.$registroUsuarios['NIT_PROVEEDOR'].'">Eliminar</button></td>
 						 </tr>';
 				}
 				?>
 			</table>
-
-			<?
-				echo $mensaje;
-			?>
 		</section>
+		<script src="../js\confirmacion_eliminar.js"></script>
 	</body>
 </html>

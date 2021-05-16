@@ -33,7 +33,7 @@ $resUsuarios=$conexion->query($usuarios);
 <head>
 	<title>MODIFICACION</title>
 	<meta charset="utf-8">
-  	<link rel="shortcut icon" href="..img\icon.svg">
+  	<link rel="shortcut icon" href="../img\icon.svg">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css\styles.css">
@@ -97,5 +97,6 @@ $resUsuarios=$conexion->query($usuarios);
 								<button type="button" onclick=" location.href='usuarios.php' "class="btn btn-secondary col-sm-4">Cancelar</button">
 				  			</div>
                     </form>
-		</div>
-</body>
+			</div>
+		</body>
+</html>

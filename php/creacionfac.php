@@ -19,7 +19,7 @@
 <head>
 	<title>CREAR FACTURA</title>
 	<meta charset="utf-8">
-  	<link rel="shortcut icon" href="img\icon.svg">
+	<link rel="shortcut icon" href="../img\icon.svg">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css\styles.css">
@@ -67,9 +67,10 @@
 							  	<input type="submit" value="Crear" class="btn btn-primary col-sm-4">
 								<button type="button" onclick=" location.href='../home.php' "class="btn btn-secondary col-sm-4">Cancelar</button">
 				  			</div>
-		  	</form>
-		</div>
-	<section id="imagenFinal">
-      <img src="../img\tvnovedades.jpg">
-    </section>
-</body>
+				</form>
+			</div>
+		<section id="imagenFinal">
+		<img src="../img\tvnovedades.jpg">
+		</section>
+	</body>
+</html>

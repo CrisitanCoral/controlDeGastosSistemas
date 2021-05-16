@@ -62,9 +62,10 @@
 							  	<input type="submit" value="Crear" class="btn btn-primary col-sm-4">
 								<button type="button" onclick=" location.href='../home.php' "class="btn btn-secondary col-sm-4">Cancelar</button">
 				  			</div>
-		  	</form>
-		</div>
-	<section id="imagenFinal">
-      <img src="../img\tvnovedades.jpg">
-    </section>
-</body>
+				</form>
+			</div>
+		<section id="imagenFinal">
+		<img src="../img\tvnovedades.jpg">
+		</section>
+	</body>
+</html>

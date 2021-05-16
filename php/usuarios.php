@@ -49,10 +49,10 @@ if(mysqli_num_rows($resUsuarios)==0)
 <html lang="es">
 
 	<head>
-	<title>GESTION DE USUARIOS</title>
+	<title>USUARIOS</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="shortcut icon" href="../img\icon.svg">
+	<link rel="shortcut icon" href="../img\icon.svg">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -93,7 +93,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 		<div class="col-sm-6"></div>
 	</div>
 			</form>
-			<table id="tabla" class="table table-striped">
+			<table id="tabla_usuarios" class="table table-striped">
 				<tr>
 					<th>ID</th>
 					<th>NOMBRES</th>
