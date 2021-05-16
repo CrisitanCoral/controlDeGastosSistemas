@@ -1,6 +1,5 @@
 <?php
 
-error_reporting(E_ALL ^ E_NOTICE);
 ////////////////// CONEXION A LA BASE DE DATOS ////////////////////////////////////
 
 $host="localhost";
@@ -16,7 +15,7 @@ if ($conexion -> connect_errno)
 ////////////////// VARIABLES DE CONSULTA////////////////////////////////////
 
 $where="";
-$email = $_POST['CORREO_USUARIO'];
+$email = $_POST['correo'];
 
 ////////////////////// BOTON BUSCAR //////////////////////////////////////
 if(!empty($email)){
@@ -65,7 +64,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 				<div class="col-sm-4">
 				<div class="form-group">
 					<label for="correo"> Correo del usuario:</label>
-					<input type="text" class="form-control" placeholder="Ingrese correo del usuario" name="CORREO_USUARIO" value="">
+					<input type="text" class="form-control" placeholder="Ingrese correo del usuario" name="correo" value="">
 				</div>
 			</div>
 				<div class="col-sm-8"></div>
@@ -76,6 +75,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 					<input type="submit" name= "buscar" value="BUSCAR" class="btn btn-primary col-sm-4">
 					<button type="button" onclick=" location.href='../home.php' "class="btn btn-secondary col-sm-4 ">CANCELAR</button">
 			</div>
+			</br></br></br></br>
 		<div class="col-sm-6"></div>
 	</div>
 			</form>
@@ -87,7 +87,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 					<th>CORREO</th>
 					<th>CLAVE</th>
 					<th>FECHA DE REGISTRO</th>
-					<th>FECHA DE MODIFICACION</th>
+					<th>ULTIMA ACTUALIZACIÓN</th>
 					<th>EDITAR</th>
 					<th>ELIMINAR</th>
 				</tr>
@@ -106,16 +106,13 @@ if(mysqli_num_rows($resUsuarios)==0)
 						 <td>'.$registroUsuarios['FECHA_CREACION'].'</td>
 						 <td>'.$registroUsuarios['FECHA_MODIFICACION'].'</td>
 						 <td> <a class="btn btn-warning onclick="href="actualizar_usuario.php?id='.$registroUsuarios['ID_USUARIO'].'">Editar</button></td>
-						 <td> <button class="btn btn-danger glyphicon glyphicon-remove">Eliminar</button></td>
+						 <td> <a class="btn btn-danger table__item__link" onclick= href="eliminar_usuario.php?id='.$registroUsuarios['ID_USUARIO'].'">Eliminar</button></td>
 						 </tr>';
 						 
 				}
 				?>
 			</table>
-
-			<?
-				echo $mensaje;
-			?>
 		</section>
+		<script src="../js\confirmacion_eliminar.js"></script>
 	</body>
 </html>

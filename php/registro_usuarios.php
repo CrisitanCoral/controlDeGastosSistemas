@@ -23,6 +23,7 @@
         $clave=$_POST['clave'];
         $clave2=$_POST['clave2'];
         $fecha_creacion=date('Y-m-d H:i:s');
+        $fecha_actualizacion=date('Y-m-d H:i:s');
 
         $var_consulta= "select * from usuarios where correo_usuario='$correo'";
         $var_resultado = $obj_conexion->query($var_consulta);
@@ -36,7 +37,7 @@
             if($clave == $clave2)
             {
             // $clave= hash('sha512', $clave);
-            $sql="INSERT INTO usuarios VALUES( '0', '$nombres','$apellidos', '$correo','$clave','$fecha_creacion', '')";
+            $sql="INSERT INTO usuarios VALUES( '0', '$nombres','$apellidos', '$correo','$clave','$fecha_creacion', '$fecha_actualizacion')";
 
                 if ($obj_conexion->query($sql) === TRUE) 
                 {
