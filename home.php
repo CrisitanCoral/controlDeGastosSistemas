@@ -42,6 +42,11 @@
               </a>
             </li>
             <li>
+              <a href="php/creacionfac.php" class="current">
+                Crear Facturas
+              </a>
+            </li>
+            <li>
               <a href="php/creacionprov.php" class="current">
                 Crear Proveedor
               </a>
@@ -49,11 +54,6 @@
              <li>
               <a href="php/proveedores.php" class="current">
                 Ver Proveedores
-              </a>
-            </li>
-            <li>
-              <a href="php/creacionfac.php" class="current">
-                Crear Facturas
               </a>
             </li>
             <li>

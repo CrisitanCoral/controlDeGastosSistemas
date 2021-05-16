@@ -53,3 +53,7 @@ ul li {
 ul li a {
    color: #6991AC;
   }
+
+a.table__item__link {
+    color: #fff;
+}
