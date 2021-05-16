@@ -27,39 +27,39 @@
 </head>
 <body>
 		<div id="contenedorRegistro" class="col-sm-12">
-				<form action="php/pendiente.php" method="POST">
+				<form action="registro_facturas.php" method="POST">
 				
 				
 					<h2>CREAR FACTURA</h2>
 
 						<div class="form-group">
-					      <label for="n_factura">Numero de factura *:</label>
-					      <input type="text" class="form-control" id="n_factura" placeholder="Ingrese número de factura" name="nombres" size="40" required="true">
+					      <label for="id">Numero de factura *:</label>
+					      <input type="text" class="form-control" id="id" placeholder="Ingrese número de factura" name="id" size="40" required="true">
 					    </div>
 				 		
 				 		<div class="form-group">
-					      <label for="proveedor">NIT del Proveedor *:</label>
-					      <input type="text" class="form-control" id="proveedor" placeholder="Ingrese proveedor" name="Proveedor" size="40" required="true">
+					      <label for="nit">NIT del Proveedor *:</label>
+					      <input type="text" class="form-control" id="nit" placeholder="Ingrese proveedor" name="nit" size="40" required="true">
 					    </div>
 
 					    <div class="form-group">
-					      <label for="f_emision">Fecha de emision *:</label>
-					      <input type="date" class="form-control" id="f_emision" placeholder="Ingrese fecha de emision" name="f_emision" size="40" required="true">
+					      <label for="fecha_emision">Fecha de emision *:</label>
+					      <input type="date" class="form-control" id="fecha_emision" placeholder="Ingrese fecha de emision" name="fecha_emision" size="40" required="true">
 					    </div>
 
 						<div class="form-group">
-							<label for="f_vencimiento">Fecha de vencimiento *:</label>
-							<input type="date" class="form-control" id="f_vencimiento" placeholder="Ingrese fecha de vencimiento" name="f_vencimiento" size="40" required="true">
+							<label for="fecha_vence">Fecha de vencimiento *:</label>
+							<input type="date" class="form-control" id="fecha_vence" placeholder="Ingrese fecha de vencimiento" name="fecha_vence" size="40" required="true">
 						  </div>
 
 					    <div class="form-group">
-					      <label for="Concepto">Concepto*:</label>
-					      <input type="text" class="form-control" id="Concepto" placeholder="Ingrese el Concepto" name="Concepto" size="40" required="true">
+					      <label for="concepto">Concepto*:</label>
+					      <input type="text" class="form-control" id="concepto" placeholder="Ingrese el Concepto" name="concepto" size="40" required="true">
 					    </div>
 
 					    <div class="form-group">
-					      <label for="monto">Monto *:</label>
-					      <input type="number" class="form-control" id="monto" placeholder="Ingrese el monto" name="monto" size="40" required="true">
+					      <label for="valor">Monto *:</label>
+					      <input type="number" class="form-control" id="valor" placeholder="Ingrese el monto" name="valor" size="40" required="true">
 					    </div>
 
 					    </br>
