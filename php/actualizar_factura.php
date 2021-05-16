@@ -25,6 +25,8 @@ $conexion= new mysqli($host, $usuario, $contraseña, $base);
 
 $id= $_GET["id"];
 $usuarios="SELECT * FROM facturas WHERE NUMERO_FACTURA = '$id'";
+$query=mysqli_query($conexion,"SELECT NIT_PROVEEDOR, NOMBRE_PROVEEDOR FROM proveedores");
+
 $resUsuarios=$conexion->query($usuarios);
 ?>
 
@@ -66,10 +68,22 @@ $resUsuarios=$conexion->query($usuarios);
                       <input type="text" class="form-control" id="id" placeholder="Ingrese número de factura" name="id" size="40" required="true" readonly="readonly" value="<?php echo $id; ?>">
                     </div>
                      
-                     <div class="form-group">
-                      <label for="nit">NIT del Proveedor *:</label>
-                      <input type="text" class="form-control" id="nit" placeholder="Ingrese proveedor" name="nit" size="40" required="true"value="<?php echo $nit; ?>">
-                    </div>
+                    <!--  Opcion -->
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1"> Proveedor *:</label>
+                        <select class="form-control" id="nit" name="nit">
+                        <!--<select name="estado">-->
+                                        <?php 
+                                            while($datos = mysqli_fetch_array($query))
+                                            {
+                                        ?>
+                                                <option value="<?php echo $datos['NIT_PROVEEDOR'] ." - ". $datos['NOMBRE_PROVEEDOR']?>"> <?php echo $datos['NIT_PROVEEDOR']." - ". $datos['NOMBRE_PROVEEDOR']?> </option>
+                                        <?php
+                                            }
+                                        ?> 
+                                        </select>
+                      </div>
+                    <!--  Opcion -->
 
                     <div class="form-group">
                       <label for="fecha_emision">Fecha de emision *:</label>

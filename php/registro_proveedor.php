@@ -38,7 +38,7 @@
 
                 if ($obj_conexion->query($sql) === TRUE) 
                 {
-                echo '<script language="javascript">alert("Los datos se almacenaron correctamente");window.location.href="creacionprov.php"</script>';
+                echo '<script language="javascript">alert("Los datos se almacenaron correctamente");window.location.href="proveedores.php"</script>';
                 } 
                     else 
                     {

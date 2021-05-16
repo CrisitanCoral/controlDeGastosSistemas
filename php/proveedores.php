@@ -61,19 +61,60 @@ if(mysqli_num_rows($resUsuarios)==0)
 	<link rel="stylesheet" href="../css\styles.css">
 	</head>
 	<body>
-		
-		<section>
-			<form method="POST">
+	
+	<!--/////////////////////// ENCABEZADO ////////////////////////-->
 
-			<div class="row">
-					<div class="col-sm-4"></div>
-				</br>
-					<div class="col-sm-6">
-					</br> </br>
-							<h2>GESTION DE PROVEEDORES</h2>
+	<div id="contorno">
+  <div>
+    <header>
+      <div id="header">
+        <nav>
+          <a href="#" id="menu-icon">
+          </a>
+          <ul>
+            <li>
+              <a href="../home.php" class="current">
+                Inicio
+              </a>
+            </li>
+            <li>
+              <a href="creacionfac.php" class="current">
+                Crear Facturas
+              </a>
+            </li>
+            <li>
+              <a href="creacionprov.php" class="current">
+                Crear Proveedor
+              </a>
+            </li>
+             <li>
+              <a href="proveedores.php" class="current">
+                Ver Proveedores
+              </a>
+            </li>
+            <li>
+              <a href="usuarios.php" class="current">
+                Gestion de Usuarios
+              </a>
+            </li>
+            <li>
+              <a id="cerrar_sesion" href="cerrar_sesion.php">
+                Cerrar Sesión
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+	  </header>
+
+<!--/////////////////////// FORMULARIO ////////////////////////-->
+
+<form method="POST">
+					</br> </br></br> </br>
+					<div class="col-sm-12">
+							<h2 align= "center">GESTION DE PROVEEDORES</h2>
 					</div>
-					<div class="col-sm-4"></div>
-			</div>
+
 			<div class="row">
 
 	<div class="col-sm-4"></div>

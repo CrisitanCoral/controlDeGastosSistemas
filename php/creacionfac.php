@@ -14,6 +14,12 @@
     die();
   }
 ?>
+
+<?php
+	$mysqli=mysqli_connect("localhost","root","","gestor_facturas");
+    $query=mysqli_query($mysqli,"SELECT NIT_PROVEEDOR, NOMBRE_PROVEEDOR FROM proveedores");
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,12 +42,21 @@
 					      <label for="id">Numero de factura *:</label>
 					      <input type="text" class="form-control" id="id" placeholder="Ingrese número de factura" name="id" size="40" required="true">
 					    </div>
-				 		
-				 		<div class="form-group">
-					      <label for="nit">NIT del Proveedor *:</label>
-					      <input type="text" class="form-control" id="nit" placeholder="Ingrese proveedor" name="nit" size="40" required="true">
-					    </div>
-
+						<!--  Opcion Proveedor-->
+						<div class="form-group">
+							<label for="exampleFormControlSelect1"> Proveedor *:</label>
+							<select class="form-control" id="nit" name="nit">
+											<?php 
+												while($datos = mysqli_fetch_array($query))
+												{
+											?>
+													<option value="<?php echo $datos['NIT_PROVEEDOR'] ." - ". $datos['NOMBRE_PROVEEDOR']?>"> <?php echo $datos['NIT_PROVEEDOR']." - ". $datos['NOMBRE_PROVEEDOR']?> </option>
+											<?php
+												}
+											?> 
+											</select>
+						</div>
+						<!--  Opcion -->
 					    <div class="form-group">
 					      <label for="fecha_emision">Fecha de emision *:</label>
 					      <input type="date" class="form-control" id="fecha_emision" placeholder="Ingrese fecha de emision" name="fecha_emision" size="40" required="true">

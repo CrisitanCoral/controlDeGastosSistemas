@@ -6,7 +6,7 @@ if(!isset($_SESSION['usuario'])){
   echo '
 	<script>
 	  alert("Por favor inicia sesión");
-	  window.location = "../index.php";
+	  window.location = "index.php";
 	</script>
   ';
   // header("location: index.php");
@@ -61,7 +61,10 @@ if(mysqli_num_rows($resUsuarios)==0)
     <script src='js/app.js'></script>
 </head>
 <body>  
-  <div id="contorno">
+
+<!--/////////////////////// ENCABEZADO ////////////////////////-->
+
+<div id="contorno">
   <div>
     <header>
       <div id="header">
@@ -102,15 +105,17 @@ if(mysqli_num_rows($resUsuarios)==0)
           </ul>
         </nav>
       </div>
+	  </header>
 
-    <section>
+<!--/////////////////////// FORMULARIO DEL BUSCAR ////////////////////////-->
+
 			<form method="POST">
-					<div class="col-sm-12">
 					</br> </br></br> </br>
+					<div class="col-sm-12">
 							<h2 align= "center">GESTION DE FACTURAS</h2>
 					</div>
-			<div class="row">
-
+	
+	<div class="row">
 	<div class="col-sm-4"></div>
 	<div class="col-sm-4">
 	<div class="form-group">
@@ -136,7 +141,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 			<table id="tabla_facturas" class="table table-striped">
 				<tr>
 					<th># FACTURA</th>
-					<th>NIT PROVEEDOR</th>
+					<th>PROVEEDOR</th>
 					<th>FECHA EMISION</th>
 					<th>FECHA VENCE</th>
 					<th>CONCEPTO</th>
@@ -167,7 +172,5 @@ if(mysqli_num_rows($resUsuarios)==0)
 			</table>
 		</section>
 		<script src="js\confirmacion_eliminar.js"></script>
-
-    </header>
 </body>
 </html>
