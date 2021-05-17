@@ -29,8 +29,11 @@ if ($conexion -> connect_errno)
 }
 ////////////////// VARIABLES DE CONSULTA////////////////////////////////////
 
+if(isset($_POST['buscar'])){
+	$id= $_POST['id'];
+}
+
 $where= "";
-$id= $_POST['id'];
 
 ////////////////////// BOTON BUSCAR //////////////////////////////////////
 if(!empty($id)){
@@ -52,9 +55,9 @@ if(mysqli_num_rows($resUsuarios)==0)
 <html>
 <head>
     <meta charset='utf-8'>
+	<link rel="shortcut icon" href="img\icon.svg">
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Control Gastos Sistemas</title>
-    <link rel="shortcut icon" href="img\icon.svg">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
@@ -109,38 +112,27 @@ if(mysqli_num_rows($resUsuarios)==0)
 
 <!--/////////////////////// FORMULARIO DEL BUSCAR ////////////////////////-->
 
-			<form method="POST">
-					</br> </br></br> </br>
-					<div class="col-sm-12">
-							<h2 align= "center">GESTION DE FACTURAS</h2>
-					</div>
-	
+<form method="POST">
+	</br> </br></br> </br>
 	<div class="row">
-	<div class="col-sm-4"></div>
-	<div class="col-sm-4">
-	<div class="form-group">
-		<label for="id"> Numero de Factura:</label>
-		<input type="text" class="form-control" placeholder="Ingrese Numero de Factura" name="id" value="">
+		<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+				<div class="form-group">
+					<h2 align= "center">GESTION DE FACTURAS</h2>
+						<label for="id"> Numero de Factura:</label>
+						<input type="text" class="form-control" placeholder="Ingrese Numero de Factura" name="id" id="id" value="">
+						</br>
+						<input type="submit" name= "buscar" value="BUSCAR" class="btn btn-primary col-sm-4">
+						<button type="button" onclick="location.href='home.php'" class="btn btn-secondary col-sm-4">CANCELAR</button">
+				</div>
+			</div> 
+		<div class="col-sm-2"></div>
 	</div>
-</div> 
-<div class="col-sm-2"></div>
-</div>
+</form>
 
-
-<div class="row">
-					<div class="col-sm-4"></div>
-					<div class="col-sm-4">
-							<input type="submit" name= "buscar" value="BUSCAR" class="btn btn-primary col-sm-4">
-							<button type="button" onclick=" location.href='home.php' "class="btn btn-secondary col-sm-4 ">CANCELAR</button">
-					</div>
-			</br> </br></br> </br>
-					<div class="col-sm-6"></div>
-			</div>
-
-			</form>
 			<table id="tabla_facturas" class="table table-striped">
 				<tr>
-					<th># FACTURA</th>
+					<th>NUMERO FACTURA</th>
 					<th>PROVEEDOR</th>
 					<th>FECHA EMISION</th>
 					<th>FECHA VENCE</th>

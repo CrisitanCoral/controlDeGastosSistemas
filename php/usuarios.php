@@ -28,8 +28,11 @@ if ($conexion -> connect_errno)
 }
 ////////////////// VARIABLES DE CONSULTA////////////////////////////////////
 
+if(isset($_POST['buscar'])){
+	$email= $_POST['correo'];
+}
+
 $where="";
-$email = $_POST['correo'];
 
 ////////////////////// BOTON BUSCAR //////////////////////////////////////
 if(!empty($email)){
@@ -51,8 +54,8 @@ if(mysqli_num_rows($resUsuarios)==0)
 	<head>
 	<title>USUARIOS</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="../img\icon.svg">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -108,32 +111,23 @@ if(mysqli_num_rows($resUsuarios)==0)
 <!--/////////////////////// FORMULARIO ////////////////////////-->
 
 <form method="POST">
-					</br> </br></br> </br>
-					<div class="col-sm-12">
-							<h2 align= "center">GESTION DE USUARIOS</h2>
-					</div>
+    </br> </br></br> </br>
+    <div class="row">
+        <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <h2 align= "center">GESTION DE USUARIOS</h2>
+                       <label for="correo"> Correo del usuario:</label>
+                         <input type="text" class="form-control" placeholder="Ingrese correo del usuario" id="correo" name="correo" value="">
+                        </br>
+                        <input type="submit" name= "buscar" value="BUSCAR" class="btn btn-primary col-sm-4">
+                        <button type="button" onclick="location.href='../home.php'" class="btn btn-secondary col-sm-4">CANCELAR</button">
+                </div>
+            </div> 
+        <div class="col-sm-2"></div>
+    </div>
+</form>
 
-				<div class="row">
-
-				<div class="col-sm-4"></div>
-				<div class="col-sm-4">
-				<div class="form-group">
-					<label for="correo"> Correo del usuario:</label>
-					<input type="text" class="form-control" placeholder="Ingrese correo del usuario" name="correo" value="">
-				</div>
-			</div>
-				<div class="col-sm-8"></div>
-		</div>
-	<div class="row">
-			<div class="col-sm-4"></div>
-				<div class="col-sm-4">
-					<input type="submit" name= "buscar" value="BUSCAR" class="btn btn-primary col-sm-4">
-					<button type="button" onclick=" location.href='../home.php' "class="btn btn-secondary col-sm-4 ">CANCELAR</button">
-			</div>
-			</br></br></br></br>
-		<div class="col-sm-6"></div>
-	</div>
-			</form>
 			<table id="tabla_usuarios" class="table table-striped">
 				<tr>
 					<th>ID</th>
