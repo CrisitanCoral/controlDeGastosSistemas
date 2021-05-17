@@ -137,24 +137,23 @@ if(mysqli_num_rows($resUsuarios)==0)
 					<th>FECHA EMISION</th>
 					<th>FECHA VENCE</th>
 					<th>CONCEPTO</th>
-					<th>MONTO</th>
+					<th>VALOR A PAGAR</th>
 					<th>ULTIMA ACTUALIZACION</th>
 					<th>EDITAR</th>
 					<th>ELIMINAR</th>
 				</tr>
 
 				<?php
-
 				while ($registroUsuarios = $resUsuarios->fetch_array(MYSQLI_BOTH))
+				
 				{
-
 					echo'<tr>
 						 <td>'.$registroUsuarios['NUMERO_FACTURA'].'</td>
 						 <td>'.$registroUsuarios['NIT_PROVEEDOR'].'</td>
 						 <td>'.$registroUsuarios['FECHA_EMISION'].'</td>
 						 <td>'.$registroUsuarios['FECHA_VENCE'].'</td>
 						 <td>'.$registroUsuarios['CONCEPTO'].'</td>
-						 <td>'.$registroUsuarios['VALOR'].'</td>
+						 <td>'."$ ".$registroUsuarios['VALOR'].'</td>
 						 <td>'.$registroUsuarios['FECHA_ACTUALIZACION'].'</td>
 						 <td> <a class="btn btn-warning onclick="href="php/actualizar_factura.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">Editar</button></td>
 						 <td> <a class="btn btn-danger table__item__link" onclick= href="php/eliminar_factura.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">Eliminar</button></td>
