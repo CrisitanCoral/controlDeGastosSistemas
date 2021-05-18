@@ -93,7 +93,7 @@ if(mysqli_num_rows($resUsuarios)==0)
             </li>
              <li>
               <a href="proveedores.php" class="current">
-                Ver Proveedores
+                Gestion de Proveedores
               </a>
             </li>
             <li>
