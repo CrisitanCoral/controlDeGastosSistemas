@@ -151,7 +151,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 
 				while ($registroUsuarios = $resUsuarios->fetch_array(MYSQLI_BOTH))
 				{
-
+          
 					echo'<tr>
 						 <td>'.$registroUsuarios['NIT_PROVEEDOR'].'</td>
 						 <td>'.$registroUsuarios['NOMBRE_PROVEEDOR'].'</td>

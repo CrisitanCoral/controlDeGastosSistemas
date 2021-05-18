@@ -41,7 +41,7 @@ if(!empty($id)){
 }
 /////////////////////// CONSULTA A LA BASE DE DATOS ////////////////////////
 
-$usuarios="SELECT * FROM facturas WHERE 1=1 $where ";
+$usuarios="SELECT * FROM facturas WHERE 1=1 $where";
 
 $resUsuarios=$conexion->query($usuarios);
 
@@ -98,6 +98,11 @@ if(mysqli_num_rows($resUsuarios)==0)
             <li>
               <a href="php/usuarios.php" class="current">
                 Gestion de Usuarios
+              </a>
+            </li>
+			<li>
+              <a href="php/validacion_correo.php" class="current">
+                Notificaciones
               </a>
             </li>
             <li>
