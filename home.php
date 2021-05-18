@@ -14,7 +14,6 @@ if(!isset($_SESSION['usuario'])){
   die();
 }
 
-error_reporting(E_ALL ^ E_NOTICE);
 ////////////////// CONEXION A LA BASE DE DATOS ////////////////////////////////////
 
 $host="localhost";
@@ -101,7 +100,7 @@ if(mysqli_num_rows($resUsuarios)==0)
               </a>
             </li>
 			<li>
-              <a href="php/validacion_correo.php" class="current">
+              <a href="validacion_correo.php" class="current">
                 Notificaciones
               </a>
             </li>
