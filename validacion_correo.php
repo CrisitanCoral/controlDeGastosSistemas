@@ -39,7 +39,7 @@ $resUsuarios=$conexion->query($usuarios);
 <html>
 <head>
     <meta charset='utf-8'>
-	<link rel="shortcut icon" href="../img\icon.svg">
+	<link rel="shortcut icon" href="img\icon.svg">
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Control Gastos Sistemas</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -76,7 +76,7 @@ $resUsuarios=$conexion->query($usuarios);
             </li>
              <li>
               <a href="php/proveedores.php" class="current">
-			  	Gestion de Proveedores
+			  	    Gestion de Proveedores
               </a>
             </li>
             <li>
@@ -85,7 +85,7 @@ $resUsuarios=$conexion->query($usuarios);
               </a>
             </li>
 			<li>
-              <a href="php/validacion_correo.php" class="current">
+              <a href="validacion_correo.php" class="current">
                 Notificaciones
               </a>
             </li>
@@ -119,8 +119,10 @@ $resUsuarios=$conexion->query($usuarios);
 				
 				{
                     $actual = date('Y-m-d h:i a');
-                    $hoy = date('Y-m-d');
+                    $hoyRaro = date('Y-m-d');
+                    $hoy = date("Y-m-d",strtotime($hoyRaro."- 1 days")); 
                     $ayer = date("Y-m-d",strtotime($hoy."- 1 days")); 
+                    $por_vencer = date("Y-m-d",strtotime($hoy."+ 3 days")); 
                     $manana = date("Y-m-d",strtotime($hoy."+ 1 days")); 
                     $factura= $registroUsuarios['NUMERO_FACTURA'];
                     $nit= $registroUsuarios['NIT_PROVEEDOR'];
@@ -133,10 +135,11 @@ $resUsuarios=$conexion->query($usuarios);
                         $estatus= '<font color="yellow">VENCE HOY</font>';
                     } else if ($vence <= $ayer) {
                         $estatus= '<font color="red">VENCIDO</font>';
-                        } else if ($vence >= $manana) {
-                        $estatus= '<font color="green"> POR VENCER</font>';
-                        } else {
-                            $estatus= '<font color="green"> NORMAL </font>';
+                      } else if ($vence == $por_vencer) {
+                        //// $estatus= '<font color="cyan"> CORREO ENVIADO</font>';
+                        $estatus= '<a class="btn btn-info" onclick= href="enviar_correo.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">Correo</button>';
+                        } else if ($vence >= $manana){
+                            $estatus= '<font color="green"> POR VENCER </font>';
                             }
 
 					echo'<tr>
