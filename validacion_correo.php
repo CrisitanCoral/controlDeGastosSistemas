@@ -41,62 +41,38 @@ $resUsuarios=$conexion->query($usuarios);
     <meta charset='utf-8'>
 	<link rel="shortcut icon" href="img\icon.svg">
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Control Gastos Sistemas</title>
+    <title>Notificaciones</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/estilos.css'>
     <script src='js/app.js'></script>
 </head>
-<body background= "#e9efff">  
+<body>  
 
 <!--/////////////////////// ENCABEZADO ////////////////////////-->
 
-<div id="contorno">
-  <div>
-    <header>
-      <div id="header">
-        <nav>
-          <a href="#" id="menu-icon">
-          </a>
-          <ul>
-            <li>
-              <a href="home.php" class="current">
-                Inicio
-              </a>
-            </li>
-            <li>
-              <a href="php/creacionfac.php" class="current">
-                Crear Facturas
-              </a>
-            </li>
-            <li>
-              <a href="php/creacionprov.php" class="current">
-                Crear Proveedor
-              </a>
-            </li>
-             <li>
-              <a href="php/proveedores.php" class="current">
-			  	    Gestion de Proveedores
-              </a>
-            </li>
-            <li>
-              <a href="php/usuarios.php" class="current">
-                Gestion de Usuarios
-              </a>
-            </li>
-			<li>
-              <a href="validacion_correo.php" class="current">
-                Notificaciones
-              </a>
-            </li>
-            <li>
-              <a id="cerrar_sesion" href="php/cerrar_sesion.php">
-                Cerrar Sesión
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		
+		<a class="navbar-brand" href="home.php">
+			<img src="img/icon.svg" width="30" height="30" alt="">
+			GESTOR FACTURAS
+		</a>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="home.php">FACTURAS</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="php/proveedores.php">PROVEEDORES</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="php/usuarios.php">USUARIOS</a>
+					</li>
+				</ul>
+				<a class="btn btn-outline-success my-2 my-sm-0" href="php/cerrar_sesion.php">CERRAR SESION</a>
+			</div>
+		</nav>
 	  </header>
 
 <!--/////////////////////// TABLA VENCIMIENTO ////////////////////////-->

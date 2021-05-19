@@ -66,58 +66,37 @@ if(mysqli_num_rows($resUsuarios)==0)
 
 <!--/////////////////////// ENCABEZADO ////////////////////////-->
 
-<div id="contorno">
-  <div>
     <header>
-      <div id="header">
-        <nav>
-          <a href="#" id="menu-icon">
-          </a>
-          <ul>
-            <li>
-              <a href="home.php" class="current">
-                Inicio
-              </a>
-            </li>
-            <li>
-              <a href="php/creacionfac.php" class="current">
-                Crear Facturas
-              </a>
-            </li>
-            <li>
-              <a href="php/creacionprov.php" class="current">
-                Crear Proveedor
-              </a>
-            </li>
-             <li>
-              <a href="php/proveedores.php" class="current">
-			  	Gestion de Proveedores
-              </a>
-            </li>
-            <li>
-              <a href="php/usuarios.php" class="current">
-                Gestion de Usuarios
-              </a>
-            </li>
-			<li>
-              <a href="validacion_correo.php" class="current">
-                Notificaciones
-              </a>
-            </li>
-            <li>
-              <a id="cerrar_sesion" href="php/cerrar_sesion.php">
-                Cerrar Sesión
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		
+		<a class="navbar-brand" href="home.php">
+			<img src="img/icon.svg" width="30" height="30" alt="">
+			GESTOR FACTURAS
+		</a>
+			<div class="collapse navbar-collapse" id="navbarText">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="home.php">FACTURAS</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="php/proveedores.php">PROVEEDORES</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="php/usuarios.php">USUARIOS</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="validacion_correo.php">NOTIFICACIONES</a>
+					</li>
+				</ul>
+				<a class="btn btn-outline-success my-2 my-sm-0" href="php/cerrar_sesion.php">CERRAR SESION</a>
+			</div>
+		</nav>
 	  </header>
 
 <!--/////////////////////// FORMULARIO DEL BUSCAR ////////////////////////-->
 
 <form method="POST">
-	</br> </br></br> </br>
+	</br> 
 	<div class="row">
 		<div class="col-sm-4"></div>
 			<div class="col-sm-4">
@@ -133,7 +112,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 		<div class="col-sm-2"></div>
 	</div>
 </form>
-
+</br>
 			<table id="tabla_facturas" class="table table-striped">
 				<tr>
 					<th>NUMERO FACTURA</th>

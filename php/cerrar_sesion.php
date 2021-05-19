@@ -1,5 +1,5 @@
 <?php
     session_start();
     session_destroy();
-    header("location: ../index.php");
+    echo '<script language="javascript">alert("Sesion Cerrada Correctamente");window.location.href="../index.php"</script>';
 ?>

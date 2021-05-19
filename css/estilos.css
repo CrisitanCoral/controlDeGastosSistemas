@@ -1,0 +1,12 @@
+body {
+    background: #343a40;
+    font-family: sans-serif;
+    margin: 0 auto;
+  }
+
+  ul li {
+    font-size: 130%;
+    display: inline-block;
+    float: left;
+    padding: 5px;
+  }
