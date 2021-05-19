@@ -88,7 +88,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 						<a class="nav-link" href="validacion_correo.php">NOTIFICACIONES</a>
 					</li>
 				</ul>
-				<a class="btn btn-outline-success my-2 my-sm-0" href="php/cerrar_sesion.php">CERRAR SESION</a>
+				<a class="btn btn-outline-warning my-2 my-sm-0" href="php/cerrar_sesion.php">CERRAR SESION</a>
 			</div>
 		</nav>
 	  </header>
@@ -103,7 +103,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 				<div class="form-group">
 					<h2 align= "center">GESTION DE FACTURAS</h2>
 						<label for="id"> Numero de Factura:</label>
-						<input type="text" class="form-control" placeholder="Ingrese Numero de Factura" name="id" id="id" value="">
+						<input class="form-control mr-sm-2" type="search" placeholder="Ingrese Numero de Factura" name="id" id="id" value="">
 						</br>
 						<input type="submit" name= "buscar" value="BUSCAR" class="btn btn-primary col-sm-4">
 						<button type="button" onclick="location.href='home.php'" class="btn btn-secondary col-sm-4">CANCELAR</button">

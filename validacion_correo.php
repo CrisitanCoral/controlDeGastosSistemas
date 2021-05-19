@@ -70,23 +70,23 @@ $resUsuarios=$conexion->query($usuarios);
 						<a class="nav-link" href="php/usuarios.php">USUARIOS</a>
 					</li>
 				</ul>
-				<a class="btn btn-outline-success my-2 my-sm-0" href="php/cerrar_sesion.php">CERRAR SESION</a>
+				<a class="btn btn-outline-warning my-2 my-sm-0" href="php/cerrar_sesion.php">CERRAR SESION</a>
 			</div>
 		</nav>
 	  </header>
 
 <!--/////////////////////// TABLA VENCIMIENTO ////////////////////////-->
 
-<table id="tabla_facturas" class="table table-dark">
+<table id="tabla_facturas" class="table table-striped table-dark">
 				<tr>
 					<th>NUMERO FACTURA</th>
 					<th>PROVEEDOR</th>
 					<th>FECHA EMISION</th>
 					<th>FECHA VENCE</th>
-                    <th>ACTUAL</th>
-					<th>AYER</th>
+          <th>ACTUAL</th>
+					<!--<th>AYER</th>
 					<th>HOY</th>
-					<th>MAÑANA</th>
+					<th>MAÑANA</th>-->
 					<th>ESTATUS</th>
 				</tr>
 
@@ -95,8 +95,8 @@ $resUsuarios=$conexion->query($usuarios);
 				
 				{
                     $actual = date('Y-m-d h:i a');
-                    $hoyRaro = date('Y-m-d');
-                    $hoy = date("Y-m-d",strtotime($hoyRaro."- 1 days")); 
+                    $hoy = date('Y-m-d');
+                    // $hoy = date("Y-m-d",strtotime($hoyRaro."- 1 days")); 
                     $ayer = date("Y-m-d",strtotime($hoy."- 1 days")); 
                     $por_vencer = date("Y-m-d",strtotime($hoy."+ 3 days")); 
                     $manana = date("Y-m-d",strtotime($hoy."+ 1 days")); 
@@ -119,16 +119,16 @@ $resUsuarios=$conexion->query($usuarios);
                             }
 
 					echo'<tr>
-						 <td>'.$registroUsuarios['NUMERO_FACTURA'].'</td>
-						 <td>'.$registroUsuarios['NIT_PROVEEDOR'].'</td>
-						 <td>'.$registroUsuarios['FECHA_EMISION'].'</td>
-						 <td>'.$registroUsuarios['FECHA_VENCE'].'</td>
-                         <td>'.$actual.'</td>
-						 <td>'.$ayer.'</td>
-						 <td>'.$hoy.'</td>
-						 <td>'.$manana.'</td>
-						 <td>'.$estatus.'</td>
-                         </tr>';
+						<td>'.$registroUsuarios['NUMERO_FACTURA'].'</td>
+						<td>'.$registroUsuarios['NIT_PROVEEDOR'].'</td>
+						<td>'.$registroUsuarios['FECHA_EMISION'].'</td>
+						<td>'.$registroUsuarios['FECHA_VENCE'].'</td>
+            <td>'.$actual.'</td>
+						<!--<td>'.$ayer.'</td>
+						<td>'.$hoy.'</td> 
+						<td>'.$manana.'</td>-->
+						<td>'.$estatus.'</td>
+            </tr>';
 				}
 				?>
 			</table>
