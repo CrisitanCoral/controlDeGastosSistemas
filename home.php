@@ -58,9 +58,9 @@ if(mysqli_num_rows($resUsuarios)==0)
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Control Gastos Sistemas</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
-    <script src='js/app.js'></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
+    <script src='script.js'></script>
 </head>
 <body>  
 
@@ -75,23 +75,41 @@ if(mysqli_num_rows($resUsuarios)==0)
 		</a>
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="home.php">FACTURAS</a>
+					<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="home.php" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						FACTURAS
+					</a>
+						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+							<li><a class="dropdown-item" href="home.php">Gestion de Factura</a></li>
+							<li><a class="dropdown-item" href="php/creacionfac.php">Crear Factura</a></li>
+							<li><a class="dropdown-item" href="validacion_correo.php">Notificaciones</a></li>
+						</ul>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="php/proveedores.php">PROVEEDORES</a>
+					<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="php/proveedores.php" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						PROVEEDORES
+					</a>
+						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+							<li><a class="dropdown-item" href="php/proveedores.php">Gestion de Proveedores</a></li>
+							<li><a class="dropdown-item" href="php/creacionprov.php">Crear Proveedores</a></li>
+						</ul>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="php/usuarios.php">USUARIOS</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="validacion_correo.php">NOTIFICACIONES</a>
+					<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="php/proveedores.php" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						USUARIOS
+					</a>
+						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+							<li><a class="dropdown-item" href="php/usuarios.php">Gestion de Usuarios</a></li>
+							<li><a class="dropdown-item" href="registro.php">Crear Usuarios</a></li>
+						</ul>
 					</li>
 				</ul>
+
 				<a class="btn btn-outline-warning my-2 my-sm-0" href="php/cerrar_sesion.php">CERRAR SESION</a>
 			</div>
 		</nav>
-	  </header>
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>  </header>
 
 <!--/////////////////////// FORMULARIO DEL BUSCAR ////////////////////////-->
 
@@ -113,9 +131,10 @@ if(mysqli_num_rows($resUsuarios)==0)
 	</div>
 </form>
 </br>
-			<table id="tabla_facturas" class="table table-striped">
+			<table id="tabla_facturas" class="table table-hover">
 				<tr>
 					<th>NUMERO FACTURA</th>
+					<th>ESTADO</th>
 					<th>PROVEEDOR</th>
 					<th>FECHA EMISION</th>
 					<th>FECHA VENCE</th>
@@ -132,6 +151,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 				{
 					echo'<tr>
 						 <td>'.$registroUsuarios['NUMERO_FACTURA'].'</td>
+						 <td>'.$registroUsuarios['ESTADO_FACTURA'].'</td>
 						 <td>'.$registroUsuarios['NIT_PROVEEDOR'].'</td>
 						 <td>'.$registroUsuarios['FECHA_EMISION'].'</td>
 						 <td>'.$registroUsuarios['FECHA_VENCE'].'</td>

@@ -68,11 +68,17 @@ $resUsuarios=$conexion->query($usuarios);
                       <input type="text" class="form-control" id="id" placeholder="Ingrese número de factura" name="id" size="40" required="true" readonly="readonly" value="<?php echo $id; ?>">
                     </div>
                      
-                    <!--  Opcion -->
+
+                    <div class="form-group">
+                      <label for="proveedor">Proveedor *:</label>
+                      <input type="text" class="form-control" id="nit" placeholder="Ingrese proveedor" name="nit" size="40" required="true" readonly="readonly" value="<?php echo $nit; ?>">
+                    </div>
+                    
+                    <!--  Opcion
                     <div class="form-group">
                         <label for="exampleFormControlSelect1"> Proveedor *:</label>
                         <select class="form-control" id="nit" name="nit">
-                        <!--<select name="estado">-->
+                        <select name="estado">
                                         <?php 
                                             while($datos = mysqli_fetch_array($query))
                                             {
@@ -83,7 +89,7 @@ $resUsuarios=$conexion->query($usuarios);
                                         ?> 
                                         </select>
                       </div>
-                    <!--  Opcion -->
+                   -->
 
                     <div class="form-group">
                       <label for="fecha_emision">Fecha de emision *:</label>
@@ -104,6 +110,18 @@ $resUsuarios=$conexion->query($usuarios);
                       <label for="valor">Monto *:</label>
                       <input type="number" class="form-control" id="valor" placeholder="Ingrese el monto" name="valor" size="40" required="true" value="<?php echo $valor; ?>">
                     </div>
+
+                    <!--  Opcion -->
+                    <div class="form-group">
+                    <label for="exampleFormControlSelect1"> Estado *:</label>
+                    <select class="form-control" id="estado_factura" name="estado_factura">
+                        <option>SIN PAGAR</option>
+                        <option>PENDIENTE</option>
+                        <option>PAGADO</option>
+                        <option>VENCIDO</option>
+                    </select>
+                    </div>
+                    <!--  Opcion -->
 
                     </br>
                         <div>

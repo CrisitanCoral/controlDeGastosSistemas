@@ -25,12 +25,12 @@
         $fecha_creacion=date('Y-m-d H:i:s');
         $fecha_actualizacion=date('Y-m-d H:i:s');
 
-        $var_consulta= "select * from usuarios where correo_usuario='$correo'";
+        $var_consulta= "SELECT * FROM usuarios WHERE correo_usuario='$correo'";
         $var_resultado = $obj_conexion->query($var_consulta);
 
         if($var_resultado->num_rows>0)
         {
-        echo '<script language="javascript">alert("Ya existe un usuario con ese correo");window.location.href="../registro.html"</script>';
+        echo '<script language="javascript">alert("Ya existe un usuario con ese correo");window.location.href="../registro.php"</script>';
         } 
         else 
         {

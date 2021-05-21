@@ -24,6 +24,7 @@
         $concepto=$_POST['concepto'];
         $valor=$_POST['valor'];
         $fecha_actualizacion=date('Y-m-d H:i:s');
+        $estado= 'SIN PAGAR';
 
         $var_consulta= "SELECT * FROM facturas WHERE NUMERO_FACTURA='$id'";
         $var_resultado = $obj_conexion->query($var_consulta);
@@ -34,7 +35,7 @@
         } 
         else 
         {
-            $sql="INSERT INTO facturas VALUES( '$id','$nit','$fecha_emision','$fecha_vence','$concepto','$valor','$fecha_actualizacion')";
+            $sql="INSERT INTO facturas VALUES( '$id','$nit','$fecha_emision','$fecha_vence','$concepto','$valor','$fecha_actualizacion','$estado')";
 
                 if ($obj_conexion->query($sql) === TRUE) 
                 {

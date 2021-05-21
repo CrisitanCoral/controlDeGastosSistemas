@@ -66,9 +66,9 @@ if(mysqli_num_rows($resUsuarios)==0)
 	</head>
 	<body>
 	
-	<!--/////////////////////// ENCABEZADO ////////////////////////-->
+<!--/////////////////////// ENCABEZADO ////////////////////////-->
 
-  <header>
+<header>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		
 		<a class="navbar-brand" href="../home.php">
@@ -77,22 +77,42 @@ if(mysqli_num_rows($resUsuarios)==0)
 		</a>
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="../home.php">FACTURAS</a>
+					<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="home.php" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						FACTURAS
+					</a>
+						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+							<li><a class="dropdown-item" href="../home.php">Gestion de Factura</a></li>
+							<li><a class="dropdown-item" href="creacionfac.php">Crear Factura</a></li>
+							<li><a class="dropdown-item" href="../validacion_correo.php">Notificaciones</a></li>
+						</ul>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="proveedores.php">PROVEEDORES</a>
+					<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="proveedores.php" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						PROVEEDORES
+					</a>
+						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+							<li><a class="dropdown-item" href="proveedores.php">Gestion de Proveedores</a></li>
+							<li><a class="dropdown-item" href="creacionprov.php">Crear Proveedores</a></li>
+						</ul>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="usuarios.php">USUARIOS</a>
+					<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="usuarios.php" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						USUARIOS
+					</a>
+						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+							<li><a class="dropdown-item" href="usuarios.php">Gestion de Usuarios</a></li>
+							<li><a class="dropdown-item" href="../registro.php">Crear Usuarios</a></li>
+						</ul>
 					</li>
 				</ul>
-				<a class="btn btn-outline-warning my-2 my-sm-0" href="php/cerrar_sesion.php">CERRAR SESION</a>
+
+				<a class="btn btn-outline-warning my-2 my-sm-0" href="cerrar_sesion.php">CERRAR SESION</a>
 			</div>
 		</nav>
-	  </header>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>  </header>
 
-<!--/////////////////////// FORMULARIO ////////////////////////-->
+<!--/////////////////////// FORMULARIO DEL BUSCAR ////////////////////////-->
 
 
 <form method="POST">
@@ -133,7 +153,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 
 				while ($registroUsuarios = $resUsuarios->fetch_array(MYSQLI_BOTH))
 				{
-          
+				
 					echo'<tr>
 						 <td>'.$registroUsuarios['NIT_PROVEEDOR'].'</td>
 						 <td>'.$registroUsuarios['NOMBRE_PROVEEDOR'].'</td>

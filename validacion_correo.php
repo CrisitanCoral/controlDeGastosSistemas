@@ -79,11 +79,12 @@ $resUsuarios=$conexion->query($usuarios);
 
 <table id="tabla_facturas" class="table table-striped table-dark">
 				<tr>
-					<th>NUMERO FACTURA</th>
+					<th># FACTURA</th>
+					<th>ESTADO</th>
 					<th>PROVEEDOR</th>
 					<th>FECHA EMISION</th>
 					<th>FECHA VENCE</th>
-          <th>ACTUAL</th>
+          			<th>ACTUAL</th>
 					<!--<th>AYER</th>
 					<th>HOY</th>
 					<th>MAÑANA</th>-->
@@ -113,17 +114,18 @@ $resUsuarios=$conexion->query($usuarios);
                         $estatus= '<font color="red">VENCIDO</font>';
                       } else if ($vence == $por_vencer) {
                         //// $estatus= '<font color="cyan"> CORREO ENVIADO</font>';
-                        $estatus= '<a class="btn btn-info" onclick= href="enviar_correo.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">Correo</button>';
+                        $estatus= '<a class="btn btn-info" onclick= href="enviar_correo.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">Alerta !</button>';
                         } else if ($vence >= $manana){
                             $estatus= '<font color="green"> POR VENCER </font>';
                             }
 
 					echo'<tr>
 						<td>'.$registroUsuarios['NUMERO_FACTURA'].'</td>
+						<td>'.$registroUsuarios['ESTADO_FACTURA'].'</td>
 						<td>'.$registroUsuarios['NIT_PROVEEDOR'].'</td>
 						<td>'.$registroUsuarios['FECHA_EMISION'].'</td>
 						<td>'.$registroUsuarios['FECHA_VENCE'].'</td>
-            <td>'.$actual.'</td>
+            			<td>'.$actual.'</td>
 						<!--<td>'.$ayer.'</td>
 						<td>'.$hoy.'</td> 
 						<td>'.$manana.'</td>-->
