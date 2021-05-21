@@ -60,7 +60,7 @@
 					    </br>
 					    	<div>
 							  	<input type="submit" value="Crear" class="btn btn-primary col-sm-4">
-								<button type="button" onclick=" location.href='../home.php' "class="btn btn-secondary col-sm-4">Cancelar</button">
+								<button type="button" onclick=" location.href='proveedores.php' "class="btn btn-secondary col-sm-4">Cancelar</button">
 				  			</div>
 				</form>
 			</div>

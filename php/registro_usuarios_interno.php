@@ -30,7 +30,7 @@
 
         if($var_resultado->num_rows>0)
         {
-        echo '<script language="javascript">alert("Ya existe un usuario con ese correo");window.location.href="../registro.php"</script>';
+        echo '<script language="javascript">alert("Ya existe un usuario con ese correo");window.location.href="creacionusua.php"</script>';
         } 
         else 
         {
@@ -41,7 +41,7 @@
 
                 if ($obj_conexion->query($sql) === TRUE) 
                 {
-                echo '<script language="javascript">alert("Los datos se almacenaron correctamente");window.location.href="../index.php"</script>';
+                echo '<script language="javascript">alert("Los datos se almacenaron correctamente");window.location.href="usuarios.php"</script>';
                 } 
                     else 
                     {
@@ -50,7 +50,7 @@
             }
             else 
             {
-            echo '<script language="javascript">alert("Las contraseñas ingresadas no coinciden");window.location.href="../registro.php"</script>';
+            echo '<script language="javascript">alert("Las contraseñas ingresadas no coinciden");window.location.href="creacionusua.php"</script>';
             }
         }
 ?>

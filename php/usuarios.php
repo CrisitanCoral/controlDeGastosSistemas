@@ -74,32 +74,18 @@ if(mysqli_num_rows($resUsuarios)==0)
 		</a>
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="home.php" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						FACTURAS
-					</a>
-						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-							<li><a class="dropdown-item" href="../home.php">Gestion de Factura</a></li>
-							<li><a class="dropdown-item" href="creacionfac.php">Crear Factura</a></li>
-							<li><a class="dropdown-item" href="../validacion_correo.php">Notificaciones</a></li>
-						</ul>
+					<li class="nav-item">
+						<a class="nav-link" href="../home.php">FACTURAS</a>
 					</li>
-					<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="proveedores.php" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						PROVEEDORES
-					</a>
-						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-							<li><a class="dropdown-item" href="proveedores.php">Gestion de Proveedores</a></li>
-							<li><a class="dropdown-item" href="creacionprov.php">Crear Proveedores</a></li>
-						</ul>
+					<li class="nav-item">
+						<a class="nav-link" href="proveedores.php">PROVEEDORES</a>
 					</li>
 					<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="usuarios.php" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						USUARIOS
 					</a>
 						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-							<li><a class="dropdown-item" href="usuarios.php">Gestion de Usuarios</a></li>
-							<li><a class="dropdown-item" href="../registro.php">Crear Usuarios</a></li>
+							<li><a class="dropdown-item" href="creacionusua.php">Crear Usuarios</a></li>
 						</ul>
 					</li>
 				</ul>

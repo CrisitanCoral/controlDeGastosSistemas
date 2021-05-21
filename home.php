@@ -80,35 +80,21 @@ if(mysqli_num_rows($resUsuarios)==0)
 						FACTURAS
 					</a>
 						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-							<li><a class="dropdown-item" href="home.php">Gestion de Factura</a></li>
 							<li><a class="dropdown-item" href="php/creacionfac.php">Crear Factura</a></li>
 							<li><a class="dropdown-item" href="validacion_correo.php">Notificaciones</a></li>
 						</ul>
 					</li>
-					<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="php/proveedores.php" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						PROVEEDORES
-					</a>
-						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-							<li><a class="dropdown-item" href="php/proveedores.php">Gestion de Proveedores</a></li>
-							<li><a class="dropdown-item" href="php/creacionprov.php">Crear Proveedores</a></li>
-						</ul>
+					<li class="nav-item">
+						<a class="nav-link" href="php/proveedores.php">PROVEEDORES</a>
 					</li>
-					<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="php/proveedores.php" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						USUARIOS
-					</a>
-						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-							<li><a class="dropdown-item" href="php/usuarios.php">Gestion de Usuarios</a></li>
-							<li><a class="dropdown-item" href="registro.php">Crear Usuarios</a></li>
-						</ul>
+					<li class="nav-item">
+						<a class="nav-link" href="php/usuarios.php">USUARIOS</a>
 					</li>
 				</ul>
 
 				<a class="btn btn-outline-warning my-2 my-sm-0" href="php/cerrar_sesion.php">CERRAR SESION</a>
 			</div>
 		</nav>
-	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>  </header>
 
 <!--/////////////////////// FORMULARIO DEL BUSCAR ////////////////////////-->
