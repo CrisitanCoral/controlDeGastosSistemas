@@ -84,9 +84,9 @@ $resUsuarios=$conexion->query($usuarios);
 					<th>PROVEEDOR</th>
 					<th>FECHA EMISION</th>
 					<th>FECHA VENCE</th>
-          			<th>ACTUAL</th>
-					<!--<th>AYER</th>
-					<th>HOY</th>
+					<th>FECHA ACTUAL</th>
+          			<!--<th>ACTUAL</th>
+					<th>AYER</th>
 					<th>MAÑANA</th>-->
 					<th>ESTATUS</th>
 				</tr>
@@ -96,8 +96,8 @@ $resUsuarios=$conexion->query($usuarios);
 				
 				{
                     $actual = date('Y-m-d h:i a');
-                    $hoy = date('Y-m-d');
-                    // $hoy = date("Y-m-d",strtotime($hoyRaro."- 1 days")); 
+                    $hoyRaro = date('Y-m-d');
+                    $hoy = date("Y-m-d",strtotime($hoyRaro."- 1 days")); 
                     $ayer = date("Y-m-d",strtotime($hoy."- 1 days")); 
                     $por_vencer = date("Y-m-d",strtotime($hoy."+ 3 days")); 
                     $manana = date("Y-m-d",strtotime($hoy."+ 1 days")); 
@@ -125,9 +125,9 @@ $resUsuarios=$conexion->query($usuarios);
 						<td>'.$registroUsuarios['NIT_PROVEEDOR'].'</td>
 						<td>'.$registroUsuarios['FECHA_EMISION'].'</td>
 						<td>'.$registroUsuarios['FECHA_VENCE'].'</td>
-            			<td>'.$actual.'</td>
-						<!--<td>'.$ayer.'</td>
 						<td>'.$hoy.'</td> 
+            			<!--<td>'.$actual.'</td>
+						<td>'.$ayer.'</td>
 						<td>'.$manana.'</td>-->
 						<td>'.$estatus.'</td>
             </tr>';

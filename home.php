@@ -117,7 +117,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 	</div>
 </form>
 </br>
-			<table id="tabla_facturas" class="table table-hover">
+			<table id="tabla_facturas" class="table table-striped">
 				<tr>
 					<th>NUMERO FACTURA</th>
 					<th>ESTADO</th>
