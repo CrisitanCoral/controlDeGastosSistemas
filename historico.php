@@ -93,7 +93,6 @@ $resUsuarios=$conexion->query($usuarios);
 				while ($registroUsuarios = $resUsuarios->fetch_array(MYSQLI_BOTH))
 				
 				{
-					
 					if($registroUsuarios['ARCHIVO']){
 						$pdf='<a href="'.$registroUsuarios['ARCHIVO'].'" target="_blank"><img src="img/pdf.png" width="60" height="50" alt=""></a>';
 					} else {
