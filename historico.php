@@ -94,6 +94,11 @@ $resUsuarios=$conexion->query($usuarios);
 				
 				{
 					
+					if($registroUsuarios['ARCHIVO']){
+						$pdf='<a href="'.$registroUsuarios['ARCHIVO'].'" target="_blank"><img src="img/pdf.png" width="60" height="50" alt=""></a>';
+					} else {
+						$pdf=' ';
+					}
 					echo'<tr>
 						<td>'.$registroUsuarios['NUMERO_FACTURA'].'</td>
 						<td>'.$registroUsuarios['ESTADO_FACTURA'].'</td>
@@ -102,8 +107,7 @@ $resUsuarios=$conexion->query($usuarios);
 						<td>'.$registroUsuarios['FECHA_VENCE'].'</td>
 						<td>'.$registroUsuarios['CONCEPTO'].'</td>
 						<td>'."$ ".$registroUsuarios['VALOR'].'</td>
-						<td><a href="'.$registroUsuarios['ARCHIVO'].'" target="_blank"><img src="img/pdf.png" width="60" height="50" alt=""></a></td>
-            		</tr>';
+						<td>'.$pdf.'</td></tr>';
 				}
 				?>
 			</table>

@@ -138,7 +138,6 @@ $actual = date('Y-m-d H:i',$actual);
 
 				while ($registroUsuarios = $resUsuarios->fetch_array(MYSQLI_BOTH))
 				{
-
 					echo'<tr>
 						 <td>'.$registroUsuarios['ID_USUARIO'].'</td>
 						 <td>'.$registroUsuarios['NOMBRE_USUARIO'].'</td>
