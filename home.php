@@ -48,6 +48,10 @@ if(mysqli_num_rows($resUsuarios)==0)
 {
 	$mensaje="<h1>No hay registros que coincidan con su criterio de búsqueda.</h1>";
 }
+
+$hoy = date('Y-m-d H:i');
+$actual = strtotime ('-7 hour',strtotime($hoy));
+$actual = date('Y-m-d H:i',$actual); 
 ?>
 
 <!DOCTYPE html>
@@ -92,6 +96,11 @@ if(mysqli_num_rows($resUsuarios)==0)
 					</li>
 				</ul>
 
+				<ul class="nav justify-content-end">
+					<li class="nav-item">
+						<h4 class="nav-link active" color="yellow"><?php echo $actual?></h4>
+					</li>
+				</ul>
 				<a class="btn btn-outline-warning my-2 my-sm-0" href="php/cerrar_sesion.php">CERRAR SESION</a>
 			</div>
 		</nav>
@@ -126,7 +135,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 					<th>FECHA VENCE</th>
 					<th>CONCEPTO</th>
 					<th>VALOR A PAGAR</th>
-					<th>ULTIMA ACTUALIZACION</th>
+					<th>VENCIMIENTO</th>
 					<th>EDITAR</th>
 					<th>ELIMINAR</th>
 				</tr>
@@ -135,6 +144,33 @@ if(mysqli_num_rows($resUsuarios)==0)
 				while ($registroUsuarios = $resUsuarios->fetch_array(MYSQLI_BOTH))
 				
 				{
+					$hoy = date('Y-m-d H:i');
+					$actual1 = strtotime ('-7 hour',strtotime($hoy));
+					$actual = date('Y-m-d',$actual1); 
+                    //$hoy = date("Y-m-d",strtotime($hoyRaro."- 1 days")); 
+                    $ayer = date("Y-m-d",strtotime($actual."- 1 days")); 
+                    $dos_vencer = date("Y-m-d",strtotime($actual."+ 2 days")); 
+                    $tres_vencer = date("Y-m-d",strtotime($actual."+ 3 days")); 
+                    $manana = date("Y-m-d",strtotime($actual."+ 1 days")); 
+                    $factura= $registroUsuarios['NUMERO_FACTURA'];
+                    $nit= $registroUsuarios['NIT_PROVEEDOR'];
+                    $emision= $registroUsuarios['FECHA_EMISION'];
+                    $vence= $registroUsuarios['FECHA_VENCE'];
+                    $concepto= $registroUsuarios['CONCEPTO'];
+                    $valor= $registroUsuarios['VALOR'];
+
+                    if ($vence == $actual){
+                        $estatus= '<a class="btn btn-outline-warning button_letra_amarilla" onclick= href="enviar_correo1.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">HOY</button>';
+                    } else if ($vence <= $ayer) {
+                        $estatus= '<font color="red">VENCIDO</font>';
+                      } else if ($vence == $tres_vencer) {
+                        $estatus= '<a class="btn btn-outline-primary button_letra_azul" onclick= href="enviar_correo3.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">3 DIAS</button>';
+                        } else if ($vence == $dos_vencer) {
+							$estatus= '<a class="btn btn-outline-primary button_letra_azul" onclick= href="enviar_correo2.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">2 DIAS</button>';
+							} else if ($vence >= $manana){
+                            $estatus= '<font color="green"> POR VENCER </font>';
+                            }
+
 					echo'<tr>
 						 <td>'.$registroUsuarios['NUMERO_FACTURA'].'</td>
 						 <td>'.$registroUsuarios['ESTADO_FACTURA'].'</td>
@@ -143,7 +179,7 @@ if(mysqli_num_rows($resUsuarios)==0)
 						 <td>'.$registroUsuarios['FECHA_VENCE'].'</td>
 						 <td>'.$registroUsuarios['CONCEPTO'].'</td>
 						 <td>'."$ ".$registroUsuarios['VALOR'].'</td>
-						 <td>'.$registroUsuarios['FECHA_ACTUALIZACION'].'</td>
+						 <td>'.$estatus.'</td>
 						 <td> <a class="btn btn-warning onclick="href="php/actualizar_factura.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">Editar</button></td>
 						 <td> <a class="btn btn-danger table__item__link" onclick= href="php/eliminar_factura.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">Eliminar</button></td>
 						 </tr>';

@@ -57,3 +57,20 @@ ul li a {
 a.table__item__link {
     color: #fff;
 }
+
+a.button_letra_blanca {
+    color: #fff;
+}
+
+a.button_letra_azul {
+    color: #2874A6;
+}
+
+a.button_letra_amarilla {
+    color: orange;
+}
+
+h4 {
+    color: #fff;
+}
+

@@ -48,6 +48,9 @@ if(mysqli_num_rows($resUsuarios)==0)
 {
 	$mensaje="<h1>No hay registros que coincidan con su criterio de búsqueda.</h1>";
 }
+$hoy = date('Y-m-d H:i');
+$actual = strtotime ('-7 hour',strtotime($hoy));
+$actual = date('Y-m-d H:i',$actual); 
 ?>
 <html lang="es">
 
@@ -89,7 +92,11 @@ if(mysqli_num_rows($resUsuarios)==0)
 						</ul>
 					</li>
 				</ul>
-
+				<ul class="nav justify-content-end">
+					<li class="nav-item">
+						<h4 class="nav-link active" color="yellow"><?php echo $actual?></h4>
+					</li>
+				</ul>
 				<a class="btn btn-outline-warning my-2 my-sm-0" href="cerrar_sesion.php">CERRAR SESION</a>
 			</div>
 		</nav>

@@ -43,7 +43,7 @@ $resUsuarios=$conexion->query($usuarios);
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Notificaciones</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' media='screen' href='css/estilos.css'>
     <script src='js/app.js'></script>
 </head>
@@ -96,8 +96,8 @@ $resUsuarios=$conexion->query($usuarios);
 				
 				{
                     $actual = date('Y-m-d h:i a');
-                    $hoyRaro = date('Y-m-d');
-                    $hoy = date("Y-m-d",strtotime($hoyRaro."- 1 days")); 
+                    $hoy = date('Y-m-d');
+                    //$hoy = date("Y-m-d",strtotime($hoyRaro."- 1 days")); 
                     $ayer = date("Y-m-d",strtotime($hoy."- 1 days")); 
                     $por_vencer = date("Y-m-d",strtotime($hoy."+ 3 days")); 
                     $manana = date("Y-m-d",strtotime($hoy."+ 1 days")); 
