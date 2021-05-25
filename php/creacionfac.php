@@ -33,7 +33,7 @@
 </head>
 <body>
 		<div id="contenedorRegistro" class="col-sm-12">
-				<form action="registro_facturas.php" method="POST">
+				<form action="registro_facturas.php" method="POST" enctype="multipart/form-data">
 				
 				
 					<h2>CREAR FACTURA</h2>
@@ -75,6 +75,11 @@
 					    <div class="form-group">
 					      <label for="valor">Monto *:</label>
 					      <input type="number" class="form-control" id="valor" placeholder="Ingrese el monto" name="valor" size="40" required="true">
+					    </div>
+
+					    <div class="form-group">
+					      <label for="factura">Archivo factura:</label>
+					      <input type="file" class="form-control" id="factura" name="factura" accept="application/pdf">
 					    </div>
 
 					    </br>

@@ -135,6 +135,7 @@ $actual = date('Y-m-d H:i',$actual);
 					<th>CONCEPTO</th>
 					<th>VALOR A PAGAR</th>
 					<th>VENCIMIENTO</th>
+					<th>FACTURA</th>
 					<th>EDITAR</th>
 					<th>ELIMINAR</th>
 				</tr>
@@ -179,6 +180,7 @@ $actual = date('Y-m-d H:i',$actual);
 						 <td>'.$registroUsuarios['CONCEPTO'].'</td>
 						 <td>'."$ ".$registroUsuarios['VALOR'].'</td>
 						 <td>'.$estatus.'</td>
+						 <td><a href="'.$registroUsuarios['ARCHIVO'].'" target="_blank"><img src="img/pdf.png" width="60" height="50" alt=""></a></td>
 						 <td> <a class="btn btn-warning onclick="href="php/actualizar_factura.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">Editar</button></td>
 						 <td> <a class="btn btn-danger table__item__link" onclick= href="php/eliminar_factura.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">Eliminar</button></td>
 						 </tr>';

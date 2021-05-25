@@ -24,7 +24,8 @@
         $valor=$_POST['valor'];
         $estado_factura=$_POST['estado_factura'];
         $fecha_actualizacion=date('Y-m-d H:i:s');
-        
+        $factura=$_POST['factura'];
+
         if($estado_factura == "PAGADO"){
 
             $var_consulta1= "SELECT * FROM historico_facturas WHERE NUMERO_FACTURA='$id'";
@@ -36,7 +37,7 @@
             } 
             else 
             {
-                $sql="INSERT INTO historico_facturas VALUES( '0','$id','$nit','$fecha_emision','$fecha_vence','$concepto','$valor','$fecha_actualizacion','$estado_factura')";
+                $sql="INSERT INTO historico_facturas VALUES( '0','$id','$nit','$fecha_emision','$fecha_vence','$concepto','$valor','$fecha_actualizacion','$estado_factura','$factura')";
                 $eliminar="DELETE FROM facturas WHERE NUMERO_FACTURA = '$id'";
 
                     if ($obj_conexion->query($sql) === TRUE && $obj_conexion->query($eliminar) === TRUE) 

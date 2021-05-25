@@ -86,6 +86,7 @@ $resUsuarios=$conexion->query($usuarios);
 					<th>FECHA VENCE</th>
 					<th>CONCEPTO</th>
 					<th>VALOR PAGADO</th>
+					<th>FACTURA</th>
 				</tr>
 
 				<?php
@@ -101,6 +102,7 @@ $resUsuarios=$conexion->query($usuarios);
 						<td>'.$registroUsuarios['FECHA_VENCE'].'</td>
 						<td>'.$registroUsuarios['CONCEPTO'].'</td>
 						<td>'."$ ".$registroUsuarios['VALOR'].'</td>
+						<td><a href="'.$registroUsuarios['ARCHIVO'].'" target="_blank"><img src="img/pdf.png" width="60" height="50" alt=""></a></td>
             		</tr>';
 				}
 				?>

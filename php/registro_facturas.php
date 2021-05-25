@@ -25,6 +25,9 @@
         $valor=$_POST['valor'];
         $fecha_actualizacion=date('Y-m-d H:i:s');
         $estado= 'SIN PAGAR';
+        $ruta="facturas/".$_FILES['factura']['name'];
+        $factura=$_FILES['factura']['tmp_name'];
+
 
         $var_consulta= "SELECT * FROM facturas WHERE NUMERO_FACTURA='$id'";
         $var_consulta1= "SELECT * FROM historico_facturas WHERE NUMERO_FACTURA='$id'";
@@ -40,7 +43,8 @@
         {
         echo '<script language="javascript">alert("Ya existe una factura PAGA con ese numero");window.location.href="historico.php"</script>';
             } else {
-                $sql="INSERT INTO facturas VALUES( '$id','$nit','$fecha_emision','$fecha_vence','$concepto','$valor','$fecha_actualizacion','$estado')";
+                $sql="INSERT INTO facturas VALUES( '$id','$nit','$fecha_emision','$fecha_vence','$concepto','$valor','$fecha_actualizacion','$estado','$ruta')";
+                move_uploaded_file($factura,$ruta);
 
                     if ($obj_conexion->query($sql) === TRUE) 
                     {

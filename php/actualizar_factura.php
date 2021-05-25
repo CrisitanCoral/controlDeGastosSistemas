@@ -53,6 +53,7 @@ $resUsuarios=$conexion->query($usuarios);
                 $concepto= $registroUsuarios['CONCEPTO'];
                 $valor= $registroUsuarios['VALOR'];
                 $fecha_actualizacion= $registroUsuarios['FECHA_ACTUALIZACION'];
+                $factura=$registroUsuarios['ARCHIVO'];
                 }
 				?>
 		</div>
@@ -122,6 +123,10 @@ $resUsuarios=$conexion->query($usuarios);
                     </select>
                     </div>
                     <!--  Opcion -->
+
+                    <div class="form-group">
+                      <input type="hidden" class="form-control" id="factura" name="factura" value="<?php echo $factura; ?>">
+                    </div>
 
                     </br>
                         <div>
