@@ -85,7 +85,7 @@ $actual = date('Y-m-d H:i',$actual);
 					</a>
 						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
 							<li><a class="dropdown-item" href="php/creacionfac.php">Crear Factura</a></li>
-							<li><a class="dropdown-item" href="validacion_correo.php">Notificaciones</a></li>
+							<li><a class="dropdown-item" href="historico.php">Historico</a></li>
 						</ul>
 					</li>
 					<li class="nav-item">
@@ -113,8 +113,8 @@ $actual = date('Y-m-d H:i',$actual);
 	<div class="row">
 		<div class="col-sm-4"></div>
 			<div class="col-sm-4">
-				<div class="form-group">
-					<h2 align= "center">GESTION DE FACTURAS</h2>
+				<div class="form-group" align= "center">
+					<h2>GESTION DE FACTURAS</h2>
 						<label for="id"> Numero de Factura:</label>
 						<input class="form-control mr-sm-2" type="search" placeholder="Ingrese Numero de Factura" name="id" id="id" value="">
 						</br>
@@ -125,7 +125,6 @@ $actual = date('Y-m-d H:i',$actual);
 		<div class="col-sm-2"></div>
 	</div>
 </form>
-</br>
 			<table id="tabla_facturas" class="table table-striped">
 				<tr>
 					<th>NUMERO FACTURA</th>

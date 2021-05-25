@@ -109,8 +109,8 @@ $actual = date('Y-m-d H:i',$actual);
     <div class="row">
         <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <div class="form-group">
-                    <h2 align= "center">GESTION DE USUARIOS</h2>
+                <div class="form-group" align= "center">
+                    <h2>GESTION DE USUARIOS</h2>
                        <label for="correo"> Correo del usuario:</label>
                          <input class="form-control mr-sm-2" type="search" placeholder="Ingrese correo del usuario" id="correo" name="correo" value="">
                         </br>
@@ -121,7 +121,6 @@ $actual = date('Y-m-d H:i',$actual);
         <div class="col-sm-2"></div>
     </div>
 </form>
-</br>
 			<table id="tabla_usuarios" class="table table-striped">
 				<tr>
 					<th>ID</th>

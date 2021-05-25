@@ -113,8 +113,8 @@ $actual = date('Y-m-d H:i',$actual);
     <div class="row">
         <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <div class="form-group">
-                    <h2 align= "center">GESTION PROVEEDORES</h2>
+                <div class="form-group" align= "center">
+                    <h2>GESTION PROVEEDORES</h2>
                        <label for="razon"> Razón Social:</label>
                          <input class="form-control mr-sm-2" type="search" placeholder="Ingrese la Razon Social del proveedor" id="nombre" name="nombre" value="">
                         </br>
@@ -129,7 +129,7 @@ $actual = date('Y-m-d H:i',$actual);
 <!--/////////////////////// TABLA DE PROVEEDORES ////////////////////////-->
 
 			<table id="tabla_proveedores" class="table table-striped">
-      </br>
+      
 				<tr>
 					<th>NIT</th>
 					<th>RAZON SOCIAL</th>
