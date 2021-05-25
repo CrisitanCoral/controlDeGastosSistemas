@@ -38,7 +38,7 @@ $mail = new PHPMailer(true);
             $mail->isHTML(true);                                  //Set email format to HTML
             $mail->Subject = 'Su factura esta a punto de vencer';
             //$mail->Body    = ' <b> Cordial Saludo </b> \n \n \n Recuerde revisar su factura numero: <b color="red"> '.$id.' </b>';
-            $mail->Body    = '<p><b> Cordial Saludo, </b></p> </br> </br> </br> <p> El presente correo es con el fin de recordarle que tiene pendiente el pago de la siguiente factura. </p> </br> </br> </br> <p> <b> Factura Numero: </b> <b style="color:red">'.$id.'</b> </p> </br></br> <p><b>NOTA: </b> Recuerde que vence en <b style="color:red"> 1 dia </b> la factura. </p> </br></br> <b> <p> Cordialmente, </p> </b></br></br> <p> Mensaje automatico por: </p> <p> <b style="color:orange"> Sistema Gestor de Facturas. </b> </p> </br></br> <img src="https://www.salitreplaza.com.co/wp-content/uploads/2018/10/Tvnovedades.jpg" width="50%" height="50%">';
+            $mail->Body    = '<p><b> Cordial Saludo, </b></p> </br> </br> </br> <p> El presente correo es con el fin de recordarle que tiene pendiente el pago de la siguiente factura. </p> </br> </br> </br> <p> <b> Factura Numero: </b> <b style="color:red">'.$id.'</b> </p> </br></br> <p><b>NOTA: </b> Recuerde que vence <b style="color:red"> hoy </b> la factura. </p> </br></br> <b> <p> Cordialmente, </p> </b></br></br> <p> Mensaje automatico por: </p> <p> <b style="color:orange"> Sistema Gestor de Facturas. </b> </p> </br></br> <img src="https://www.salitreplaza.com.co/wp-content/uploads/2018/10/Tvnovedades.jpg" width="50%" height="50%">';
 
             $mail->send();
             

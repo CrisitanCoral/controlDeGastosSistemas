@@ -127,11 +127,11 @@ $actual = date('Y-m-d H:i',$actual);
 </form>
 			<table id="tabla_facturas" class="table table-striped">
 				<tr>
-					<th>NUMERO FACTURA</th>
+					<th>NÚMERO FACTURA</th>
 					<th>ESTADO</th>
 					<th>PROVEEDOR</th>
-					<th>FECHA EMISION</th>
-					<th>FECHA VENCE</th>
+					<th>FECHA DE EMISIÓN</th>
+					<th>FECHA DE VENCIMIENTO</th>
 					<th>CONCEPTO</th>
 					<th>VALOR A PAGAR</th>
 					<th>VENCIMIENTO</th>
@@ -149,6 +149,7 @@ $actual = date('Y-m-d H:i',$actual);
 					$actual = date('Y-m-d',$actual1); 
                     //$hoy = date("Y-m-d",strtotime($hoyRaro."- 1 days")); 
                     $ayer = date("Y-m-d",strtotime($actual."- 1 days")); 
+                    $manana = date("Y-m-d",strtotime($actual."+ 1 days")); 
                     $dos_vencer = date("Y-m-d",strtotime($actual."+ 2 days")); 
                     $tres_vencer = date("Y-m-d",strtotime($actual."+ 3 days")); 
                     $manana = date("Y-m-d",strtotime($actual."+ 1 days")); 
@@ -160,14 +161,16 @@ $actual = date('Y-m-d H:i',$actual);
                     $valor= $registroUsuarios['VALOR'];
 
                     if ($vence == $actual){
-                        $estatus= '<a class="btn btn-outline-warning button_letra_amarilla" onclick= href="enviar_correo1.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">HOY</button>';
+                        $estatus= '<a class="btn btn-outline-warning button_letra_amarilla" onclick= href="enviar_correo.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">HOY</button>';
                     } else if ($vence <= $ayer) {
                         $estatus= '<font color="red">VENCIDO</font>';
                       } else if ($vence == $tres_vencer) {
                         $estatus= '<a class="btn btn-outline-primary button_letra_azul" onclick= href="enviar_correo3.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">3 DIAS</button>';
                         } else if ($vence == $dos_vencer) {
 							$estatus= '<a class="btn btn-outline-primary button_letra_azul" onclick= href="enviar_correo2.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">2 DIAS</button>';
-							} else if ($vence >= $manana){
+							} else if ($vence == $manana) {
+								$estatus= '<a class="btn btn-outline-primary button_letra_azul" onclick= href="enviar_correo1.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">1 DIA</button>';
+								} else if ($vence >= $manana){
                             $estatus= '<font color="green"> POR VENCER </font>';
                             }
 					
