@@ -64,7 +64,7 @@ $actual = date('Y-m-d H:i',$actual);
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
-    <script src='script.js'></script>
+	<script src="js\enviar_dato_correo.js"></script>
 </head>
 <body>  
 
@@ -155,13 +155,11 @@ $actual = date('Y-m-d H:i',$actual);
                     $nit= $registroUsuarios['NIT_PROVEEDOR'];
                     $emision= $registroUsuarios['FECHA_EMISION'];
                     $vence= $registroUsuarios['FECHA_VENCE'];
-					//$resta = $vence->diff($actual);
                     $concepto= $registroUsuarios['CONCEPTO'];
                     $valor= $registroUsuarios['VALOR'];
                     $notificacion1= $registroUsuarios['NOTIFICACION1'];
                     $notificacion2= $registroUsuarios['NOTIFICACION2'];
                     $notificacion3= $registroUsuarios['NOTIFICACION3'];
-
 					/*
 					if($notificacion1=="" ){
 						if ($vence == $actual){
@@ -212,34 +210,44 @@ $actual = date('Y-m-d H:i',$actual);
 					
 					if($notificacion1==""){
 						if ($vence == $actual){
-							$estatus= '<font>HOY</font>
-							<script>
-								var factura = '.$factura.'
-								enviarCorreo(factura);
+							$estatus= '<font color="#F1C40F">HOY</font>';
+							'<script>
+								window.open("enviarcorreo.php?id=' .$factura. '_blank");
+								openedWindow.close();
 							</script>';
 						} else if ($vence <= $ayer) {
 							$estatus= '<font color="red">VENCIDO</font>';
 							
 						  } else if ($vence == $tres_vencer) {
-							$estatus= '<font>3 DIAS</font>
-							<script>
-								var factura = '.$factura.'
-								enviarCorreo(factura);
+							$estatus= '<font color="green">3 DIAS</font>';
+							'<script>
+								enviarCorreo('.$factura.');
+						
 							</script>';
 							} else if ($vence == $dos_vencer) {
-								$estatus= '<font>2 DIAS</font>
-								<script>
-									var factura = '.$factura.'
-									enviarCorreo(factura);
+								$estatus= '<a href="enviar_correo" color="blue">2 DIAS</a>';
+								echo '<script>
+									enviarCorreo('.$factura.');
+
 								</script>';
 								} else if ($vence == $manana) {
-									$estatus= '<font>1 DIA</font>
-									<script>
-										var factura = '.$factura.'
-										enviarCorreo(factura);
+									$estatus='<font color="#FC8300">1 DIA</font>';
+									'<script>
+										window.open("enviar_correo.php?id=' .$factura. '_blank");
 									</script>';
 									} else if ($vence > $manana){
-								$estatus= '<font color="green"> DIAS </font>';
+										$diferencia = abs(strtotime($vence) - strtotime($actual));
+										$anos  = floor($diferencia / (365 * 60 * 60 * 24));
+										$meses = floor(($diferencia - $anos * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
+										$dias   = floor(($diferencia - $anos * 365 * 60 * 60 * 24 - $meses * 30 * 60 * 60 *24) / (60 * 60 * 24));
+										if($meses>1){
+										$estatus= '<font color="green">'.$meses.' MESES '. $dias.' DIAS </font>';
+										} else if ($meses==1){
+											$estatus= '<font color="green">'.$meses.' MES '. $dias.' DIAS </font>';
+											} else if ($meses<1){
+												$estatus= '<font color="green">'. $dias.' DIAS </font>';
+											}
+										//$estatus= '<font color="green">'.$diferencia.' DIAS </font>';
 								}
 
 					}
@@ -269,6 +277,5 @@ $actual = date('Y-m-d H:i',$actual);
 			</table>
 		</section>
 		<script src="js\confirmacion_eliminar.js"></script>
-		<script src="js\enviar_dato_correo.js"></script>
 </body>
 </html>

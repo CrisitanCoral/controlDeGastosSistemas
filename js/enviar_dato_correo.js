@@ -1,5 +1,5 @@
 function enviarCorreo(factura) {
-    var id = new String(factura);
-    window.open("../enviarcorreo.php?factura=" + id, '_blank');
+    var cadena = new String(factura);
+    window.open("/GastosSistemas/enviar_correo.php?id=" + cadena, '_blank');
     location.reload();
     }
