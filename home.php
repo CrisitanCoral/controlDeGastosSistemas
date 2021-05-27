@@ -157,6 +157,7 @@ $actual = date('Y-m-d H:i',$actual);
                     $vence= $registroUsuarios['FECHA_VENCE'];
                     $concepto= $registroUsuarios['CONCEPTO'];
                     $valor= $registroUsuarios['VALOR'];
+                    $notificacion= $registroUsuarios['NOTIFICACION'];
                     $notificacion1= $registroUsuarios['NOTIFICACION1'];
                     $notificacion2= $registroUsuarios['NOTIFICACION2'];
                     $notificacion3= $registroUsuarios['NOTIFICACION3'];
@@ -208,38 +209,32 @@ $actual = date('Y-m-d H:i',$actual);
 					}
 					*/
 					
-					if($notificacion1==""){
-						if ($vence == $actual){
+					if ($notificacion=="PENDIENTE" && $vence == $actual ){
 							$estatus= '<font color="#F1C40F">HOY</font>';
-							'<script>
-								window.open("enviarcorreo.php?id=' .$factura. '_blank");
-								openedWindow.close();
+							echo '<script language="javascript">
+								window.location.href="enviar_correo.php?id='.$factura.'";
 							</script>';
-						} else if ($vence <= $ayer) {
-							$estatus= '<font color="red">VENCIDO</font>';
-							
-						  } else if ($vence == $tres_vencer) {
-							$estatus= '<font color="green">3 DIAS</font>';
-							'<script>
-								enviarCorreo('.$factura.');
-						
+						} else if ($notificacion1=="PENDIENTE" && $vence == $manana ) {
+							$estatus= '<font color="#F1C40F">1 DIA</font>';
+							echo '<script language="javascript">
+								window.location.href="enviar_correo1.php?id='.$factura.'";
 							</script>';
-							} else if ($vence == $dos_vencer) {
-								$estatus= '<a href="enviar_correo" color="blue">2 DIAS</a>';
-								echo '<script>
-									enviarCorreo('.$factura.');
-
+						  } else if ($notificacion2=="PENDIENTE" && $vence == $dos_vencer ) {
+							$estatus= '<font color="blue">2 DIAS</font>';
+							echo'<script language="javascript">
+								window.location.href="enviar_correo2.php?id='.$factura.'";
+							</script>';
+							} else if ($notificacion3=="PENDIENTE" && $vence == $tres_vencer ) {
+								$estatus= '<font color="green">3 DIAS</font>';
+								echo'<script language="javascript">
+									window.location.href="enviar_correo3.php?id='.$factura.'";
 								</script>';
-								} else if ($vence == $manana) {
-									$estatus='<font color="#FC8300">1 DIA</font>';
-									'<script>
-										window.open("enviar_correo.php?id=' .$factura. '_blank");
-									</script>';
-									} else if ($vence > $manana){
+								} else if ($vence > $manana){
 										$diferencia = abs(strtotime($vence) - strtotime($actual));
 										$anos  = floor($diferencia / (365 * 60 * 60 * 24));
 										$meses = floor(($diferencia - $anos * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
 										$dias   = floor(($diferencia - $anos * 365 * 60 * 60 * 24 - $meses * 30 * 60 * 60 *24) / (60 * 60 * 24));
+										
 										if($meses>1){
 										$estatus= '<font color="green">'.$meses.' MESES '. $dias.' DIAS </font>';
 										} else if ($meses==1){
@@ -247,10 +242,21 @@ $actual = date('Y-m-d H:i',$actual);
 											} else if ($meses<1){
 												$estatus= '<font color="green">'. $dias.' DIAS </font>';
 											}
-										//$estatus= '<font color="green">'.$diferencia.' DIAS </font>';
-								}
+									} else if ($vence == $actual){
+										$estatus= '<a class="btn btn-outline-warning button_letra_amarilla" onclick= href="enviar_correo.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">HOY</button>';
+									} else if ($vence <= $ayer) {
+										$estatus= '<font color="red">VENCIDO</font>';
+									  } else if ($vence == $tres_vencer) {
+										$estatus= '<a class="btn btn-outline-primary button_letra_azul" onclick= href="enviar_correo3.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">3 DIAS</button>';
+										} else if ($vence == $dos_vencer) {
+											$estatus= '<a class="btn btn-outline-primary button_letra_azul" onclick= href="enviar_correo2.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">2 DIAS</button>';
+											} else if ($vence == $manana) {
+												$estatus= '<a class="btn btn-outline-primary button_letra_azul" onclick= href="enviar_correo1.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">1 DIA</button>';
+												} else if ($vence > $manana){
+											$estatus= '<font color="green"> POR VENCER </font>';
+											}
 
-					}
+
 
 
 					if($registroUsuarios['ARCHIVO']){

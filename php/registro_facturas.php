@@ -42,9 +42,9 @@
         } 
         else if ($var_resultado1->num_rows>0)
         {
-        echo '<script language="javascript">alert("Ya existe una factura PAGA con ese numero");window.location.href="historico.php"</script>';
+        echo '<script language="javascript">alert("Ya existe una factura PAGA con ese numero");window.location.href="../historico.php"</script>';
             } else {
-                $sql="INSERT INTO facturas VALUES( '$id','$nit','$fecha_emision','$fecha_vence','$concepto','$valor','$fecha_actualizacion','$estado','$rutabase','','','')";
+                $sql="INSERT INTO facturas VALUES( '$id','$nit','$fecha_emision','$fecha_vence','$concepto','$valor','$fecha_actualizacion','$estado','$rutabase','PENDIENTE','PENDIENTE','PENDIENTE')";
                 move_uploaded_file($factura1,$ruta);
 
                     if ($obj_conexion->query($sql) === TRUE) 

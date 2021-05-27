@@ -14,17 +14,6 @@ $cons_equipo="localhost";
 
 $obj_conexion = mysqli_connect($cons_equipo,$cons_usuario,$cons_contra,$cons_base_datos);
 
-    
-    if($obj_conexion)
-    {
-        echo "<h3>Conexion Exitosa PHP - MySQL</h3><hr><br>";
-    }
-    else
-    {
-        echo "<h3>No se ha podido conectar PHP - MySQL, verifique sus datos.</h3><hr><br>";
-    }
-    
-
 $id= $_GET["id"];
 
 $mail = new PHPMailer(true);
@@ -60,23 +49,21 @@ $mail = new PHPMailer(true);
 
             $mail->send();
             
-            echo '<script language="javascript">alert("Se envio el correo de notificacion");window.location.href="home.php"</script>';
             
-            
-            $sql="UPDATE facturas 
-                    SET NOTIFICACION1 = 'ENVIADO',
-                    WHERE NUMERO_FACTURA = '$id'";
+            $sql="UPDATE facturas SET NOTIFICACION = 'ENVIADO' WHERE NUMERO_FACTURA = '$id'";
 
-            if ($obj_conexion->query($sql) === true) 
+            if ($obj_conexion->query($sql) === TRUE) 
             {
-            echo '<script language="javascript">alert("Notificacion enviada a la base");window.location.href="../home.php"</script>';
+            echo '<script language="javascript">alert("Notificacion enviada a la base");window.location.href="home.php"</script>';
             } 
                 else 
                 {
                 echo "Error al almacenar los datos: " . $sql . "<br>" . $obj_conexion->error;
                 }
             
-
+                
+            echo '<script language="javascript">alert("Se envio el correo de notificacion");window.location.href="home.php"</script>';
+            
         } catch (Exception $e) {
             echo "Hubo un error al enviar el mensaje, Error: {$mail->ErrorInfo}";
         }

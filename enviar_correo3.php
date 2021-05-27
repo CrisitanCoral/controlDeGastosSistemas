@@ -7,6 +7,13 @@ require 'PHPMailer/Exception.php';
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
 
+$cons_usuario="root";
+$cons_contra="";
+$cons_base_datos="gestor_facturas";
+$cons_equipo="localhost";
+
+$obj_conexion = mysqli_connect($cons_equipo,$cons_usuario,$cons_contra,$cons_base_datos);
+
 $id= $_GET["id"];
 
 $mail = new PHPMailer(true);
@@ -42,10 +49,24 @@ $mail = new PHPMailer(true);
 
             $mail->send();
             
-            echo '<script language="javascript">alert("Se envio el correo de notificacion");window.location.href="home.php"</script>';
+          
+            $sql="UPDATE facturas SET NOTIFICACION3 = 'ENVIADO' WHERE NUMERO_FACTURA = '$id'";
+
+            if ($obj_conexion->query($sql) === TRUE) 
+            {
+            echo '<script language="javascript">alert("Notificacion enviada a la base");window.location.href="home.php"</script>';
+            } 
+                else 
+                {
+                echo "Error al almacenar los datos: " . $sql . "<br>" . $obj_conexion->error;
+                }
         
-            
+                echo '<script language="javascript">alert("Se envio el correo de notificacion");window.location.href="home.php"</script>';
+        
+
         } catch (Exception $e) {
             echo "Hubo un error al enviar el mensaje, Error: {$mail->ErrorInfo}";
         }
+
+        
 ?>
