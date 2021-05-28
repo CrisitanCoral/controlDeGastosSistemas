@@ -215,7 +215,7 @@ $actual = date('Y-m-d H:i',$actual);
 								window.location.href="enviar_correo.php?id='.$factura.'";
 							</script>';
 						} else if ($notificacion1=="PENDIENTE" && $vence == $manana ) {
-							$estatus= '<font color="#F1C40F">1 DIA</font>';
+							$estatus= '<font color="orange">1 DIA</font>';
 							echo '<script language="javascript">
 								window.location.href="enviar_correo1.php?id='.$factura.'";
 							</script>';
@@ -242,22 +242,18 @@ $actual = date('Y-m-d H:i',$actual);
 											} else if ($meses<1){
 												$estatus= '<font color="green">'. $dias.' DIAS </font>';
 											}
+
 									} else if ($vence == $actual){
-										$estatus= '<a class="btn btn-outline-warning button_letra_amarilla" onclick= href="enviar_correo.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">HOY</button>';
+										$estatus= '<font color="#F1C40F">HOY</font>';
 									} else if ($vence <= $ayer) {
 										$estatus= '<font color="red">VENCIDO</font>';
 									  } else if ($vence == $tres_vencer) {
-										$estatus= '<a class="btn btn-outline-primary button_letra_azul" onclick= href="enviar_correo3.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">3 DIAS</button>';
+										$estatus= '<font color="green">3 DIAS</font>';
 										} else if ($vence == $dos_vencer) {
-											$estatus= '<a class="btn btn-outline-primary button_letra_azul" onclick= href="enviar_correo2.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">2 DIAS</button>';
+											$estatus= '<font color="blue">2 DIAS</font>';
 											} else if ($vence == $manana) {
-												$estatus= '<a class="btn btn-outline-primary button_letra_azul" onclick= href="enviar_correo1.php?id='.$registroUsuarios['NUMERO_FACTURA'].'">1 DIA</button>';
-												} else if ($vence > $manana){
-											$estatus= '<font color="green"> POR VENCER </font>';
-											}
-
-
-
+												$estatus= '<font color="orange">1 DIA</font>';
+												}
 
 					if($registroUsuarios['ARCHIVO']){
 						$pdf='<a href="'.$registroUsuarios['ARCHIVO'].'" target="_blank"><img src="img/pdf.png" width="60" height="50" alt=""></a>';

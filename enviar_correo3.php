@@ -48,19 +48,13 @@ $mail = new PHPMailer(true);
             $mail->Body    = '<p><b> Cordial Saludo, </b></p> </br> </br> </br> <p> El presente correo es con el fin de recordarle que tiene pendiente el pago de la siguiente factura. </p> </br> </br> </br> <p> <b> Factura Numero: </b> <b style="color:red">'.$id.'</b> </p> </br></br> <p><b>NOTA: </b> Recuerde que cuenta con <b style="color:red"> 3 dias </b> para realizar el pago de la factura. </p> </br></br> <b> <p> Cordialmente, </p> </b></br></br> <p> Mensaje automatico por: </p> <p> <b style="color:orange"> Sistema Gestor de Facturas. </b> </p> </br></br> <img src="https://www.salitreplaza.com.co/wp-content/uploads/2018/10/Tvnovedades.jpg" width="50%" height="50%">';
 
             $mail->send();
-                   
-            echo '<script language="javascript">alert("Se envio el correo de notificacion");"</script>';
-        
+ 
             $sql="UPDATE facturas SET NOTIFICACION3 = 'ENVIADO' WHERE NUMERO_FACTURA = '$id'";
+            $obj_conexion->query($sql);
 
-            if ($obj_conexion->query($sql) === TRUE) 
-            {
-            echo '<script language="javascript">alert("Notificacion enviada a la base");window.location.href="home.php"</script>';
-            } 
-                else 
-                {
-                echo "Error al almacenar los datos: " . $sql . "<br>" . $obj_conexion->error;
-                }
+            echo'<script language="javascript">
+                window.location.href="home.php";
+            </script>';
 
         } catch (Exception $e) {
             echo "Hubo un error al enviar el mensaje, Error: {$mail->ErrorInfo}";
