@@ -127,7 +127,6 @@ $actual = date('Y-m-d H:i',$actual);
 					<th>NOMBRES</th>
 					<th>APELLIDOS</th>
 					<th>CORREO</th>
-					<th>CLAVE</th>
 					<th>FECHA DE REGISTRO</th>
 					<th>ULTIMA ACTUALIZACIÓN</th>
 					<th>EDITAR</th>
@@ -143,7 +142,6 @@ $actual = date('Y-m-d H:i',$actual);
 						 <td>'.$registroUsuarios['NOMBRE_USUARIO'].'</td>
 						 <td>'.$registroUsuarios['APELLIDO_USUARIO'].'</td>
 						 <td>'.$registroUsuarios['CORREO_USUARIO'].'</td>
-						 <td>'.$registroUsuarios['CLAVE_USUARIO'].'</td>
 						 <td>'.$registroUsuarios['FECHA_CREACION'].'</td>
 						 <td>'.$registroUsuarios['FECHA_MODIFICACION'].'</td>
 						 <td> <a class="btn btn-warning onclick="href="actualizar_usuario.php?id='.$registroUsuarios['ID_USUARIO'].'">Editar</button></td>

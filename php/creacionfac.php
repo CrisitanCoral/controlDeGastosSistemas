@@ -79,7 +79,7 @@
 
 					    <div class="form-group">
 					      <label for="factura">Archivo factura:</label>
-					      <input type="file" class="form-control" id="factura" name="factura" accept="application/pdf">
+					      <input type="file" class="form-control" id="factura" name="factura" accept="application/pdf" required="true">
 					    </div>
 
 					    </br>
